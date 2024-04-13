@@ -24,16 +24,19 @@
                                             <div class="main-signup-header">
                                                 <h2 class="text-dark">Get Started</h2>
                                                 <h6 class="font-weight-normal mb-4">It's free to signup and only takes a minute.</h6>
-                                                <form action="#">
+                                                <form action="#" method="post">
+                                                    @csrf
                                                     <div class="form-group">
-                                                        <label>Firstname &amp; Lastname</label> <input class="form-control" placeholder="Enter your firstname and lastname" type="text">
+                                                        <label>Firstname &amp; Lastname</label> <input class="form-control" name="name" placeholder="Enter your firstname and lastname" type="text" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Email</label> <input class="form-control" placeholder="Enter your email" type="text">
+                                                        <label>Email</label> <input class="form-control"  name="email" placeholder="Enter your email" type="text" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password" type="password">
-                                                    </div><a href="{{url('signin')}}" class="btn btn-primary btn-block">Create Account</a>
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password" name="password" type="password" required>
+                                                    </div>
+                                                    <!-- <a href="{{url('signin')}}" class="btn btn-primary btn-block">Create Account</a> -->
+                                                    <input type="submit" value="Create Account">
                                                     <div class="mt-4 d-flex mx-auto text-center justify-content-center">
                                                         <button class="btn btn-icon btn-facebook me-3" type="button">
                                                             <span class="btn-inner--icon"> <i class="bx bxl-facebook tx-18 tx-prime"></i> </span>
@@ -51,6 +54,7 @@
                                                 </form>
                                                 <div class="main-signup-footer mt-3 text-center">
                                                     <p>Already have an account? <a href="{{url('signin')}}">Sign In</a></p>
+                                                  
                                                 </div>
                                             </div>
                                         </div>
