@@ -29,7 +29,7 @@
                                                     <div class="tabs-menu1">
                                                         <ul class="nav panel-tabs">
                                                             <li class="me-2"><a href="#tab5" class="active" data-bs-toggle="tab">Email</a></li>
-                                                            <li><a href="#tab6" data-bs-toggle="tab" class="">Mobile no</a></li>
+                                                            <!-- <li><a href="#tab6" data-bs-toggle="tab" class="">Mobile no</a></li> -->
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -89,7 +89,7 @@
 
                                                 <div class="main-signin-footer text-center mt-3">
                                                     <p><a href="{{url('forgot')}}" class="mb-3">Forgot password?</a></p>
-                                                    <p>Don't have an account? <a href="{{url('signup')}}">Create an Account</a></p>
+                                                    <p>Don't have an account? <a href="{{url('register')}}">Create an Account</a></p>
                                                 </div>
                                             </div>
                                         </div>

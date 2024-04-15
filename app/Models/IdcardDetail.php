@@ -9,4 +9,5 @@ class IdcardDetail extends Model
 {
     use HasFactory;
     protected $table = 'idcarddetails';
+ 
 }

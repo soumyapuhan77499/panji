@@ -27,7 +27,7 @@ class LoginRegisterController extends Controller
      */
     public function register()
     {
-        return view('livewire.signin');
+        return view('livewire.signup');
     }
 
     /**
@@ -38,24 +38,57 @@ class LoginRegisterController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request);
-        $request->validate([
-            'name' => 'required|string|max:250',
-            'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8|confirmed'
-        ]);
+    //    dd($request);
+        // $request->validate([
+        //     'first_name' => 'required|string|max:250',
+        //     'last_name' => 'required|string|max:250',
+        //     'email' => 'required|email|max:250|unique:users',
+        //     'password' => 'required|min:8|confirmed'
+        // ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        // $userdata = new User();
+        // $userdata->userid = $request->userid;
+        // $userdata->first_name = $request->first_name;
+        // $userdata->last_name = $request->last_name;
+        // $userdata->email = $request->email;
+        // $userdata->password = Hash::make($request->password);
+        // $userdata->save();
+// dd($userdata);
 
-        $credentials = $request->only('email', 'password');
-        Auth::attempt($credentials);
-        $request->session()->regenerate();
-        return redirect()->route('index')
-        ->withSuccess('You have successfully registered & logged in!');
+        $user = new User();
+
+        // Check if a name is provided in the request
+        if ($request->has('first_name')) {
+            $user->first_name = $request->first_name;
+        }
+        $user->userid = $request->userid;
+        $user->name = $request->last_name;
+        $user->last_name = $request->last_name;
+
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 'user';
+
+        // Save the user
+        $user->save();
+
+        // User::create([
+        //     'userid' => $request->userid,
+        //     'name' => $request->first_name.$request->last_name,
+        //     'first_name' => $request->first_name,
+        //     'last_name' => $request->last_name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        //     'role'=> 'user'
+        // ]);
+        return redirect('/')->with('success', 'Registered successfully.');
+
+
+        // $credentials = $request->only('email', 'password');
+        // Auth::attempt($credentials);
+        // $request->session()->regenerate();
+        // return redirect()->route('index')
+        // ->withSuccess('You have successfully registered & logged in!');
     }
 
     /**

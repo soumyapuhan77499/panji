@@ -137,6 +137,8 @@ use App\Http\Controllers\User\userController;
 |
 */
 Route::controller(LoginRegisterController::class)->group(function() {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
     Route::get('/', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
@@ -147,19 +149,21 @@ Route::controller(LoginRegisterController::class)->group(function() {
 Route::prefix('admin')->middleware(['auth', 'checkUserRole:admin'])->group(function () {
 Route::get('/sebayatregister', [sebayatregisterController::class, 'sebayatregister']);
 Route::post('/saveregister', [sebayatregisterController::class, 'saveregister'])->name('saveregister');
+Route::get('/sebayatlist', [sebayatregisterController::class, 'sebayatlist'])->name('sebayatlist');
 
 
 
 
 
 });
-// admin routes
+// user routes
 Route::middleware(['auth', 'checkUserRole:user'])->group(function () {
   
     // Route::get('/user/dashboard', 'dashboard')->name('user.dashboard');
     // Route::get('/user/dashboard', [userController::class, 'dashboard']);
     Route::controller(userController::class)->group(function() {
         Route::get('/user/dashboard', 'dashboard')->name('user.dashboard');
+        Route::get('/user/sebayatregister', 'sebayatregister')->name('user.sebayatregister');
     });
 });
 
@@ -260,8 +264,8 @@ Route::get('reset', Reset::class);
 Route::get('search', Search::class);
 Route::get('settings', Settings::class);
 Route::get('shop', Shop::class);
-Route::get('signin', Signin::class);
-Route::get('signup', Signup::class);
+// Route::get('signin', Signin::class);
+// Route::get('signup', Signup::class);
 Route::get('spinners', Spinners::class);
 Route::get('sweet-alert', SweetAlert::class);
 Route::get('switcherpage', Switcherpage::class);

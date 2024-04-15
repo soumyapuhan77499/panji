@@ -24,19 +24,30 @@
                                             <div class="main-signup-header">
                                                 <h2 class="text-dark">Get Started</h2>
                                                 <h6 class="font-weight-normal mb-4">It's free to signup and only takes a minute.</h6>
-                                                <form action="#" method="post">
+                                                <form action="{{ route('store') }}" method="post">
                                                     @csrf
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="userid" value="JA{{ rand(1000, 9999) }}" placeholder="Enter First Name">
+
+                                                     <div class="row">
+                                                         <div class="col-md-6">
+                                                            <div class="form-group">
+                                                              <label>Firstname </label> <input class="form-control" name="first_name" placeholder="Enter your firstname" type="text" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                              <label>Lastname</label> <input class="form-control" name="last_name" placeholder="Enter your lastname" type="text" required>
+                                                            </div>
+                                                        </div>
+                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Firstname &amp; Lastname</label> <input class="form-control" name="name" placeholder="Enter your firstname and lastname" type="text" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input class="form-control"  name="email" placeholder="Enter your email" type="text" required>
+                                                        <label>Email</label> <input class="form-control"  name="email" placeholder="Enter your email" type="email" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label> <input class="form-control" placeholder="Enter your password" name="password" type="password" required>
                                                     </div>
                                                     <!-- <a href="{{url('signin')}}" class="btn btn-primary btn-block">Create Account</a> -->
-                                                    <input type="submit" value="Create Account">
+                                                    <input type="submit" class="btn btn-primary" value="Create Account">
                                                     <div class="mt-4 d-flex mx-auto text-center justify-content-center">
                                                         <button class="btn btn-icon btn-facebook me-3" type="button">
                                                             <span class="btn-inner--icon"> <i class="bx bxl-facebook tx-18 tx-prime"></i> </span>

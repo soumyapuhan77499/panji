@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('user.layouts.app')
 
     @section('styles')
 
@@ -22,9 +22,7 @@
 						</div>
 					</div>
 					<!-- /breadcrumb -->
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+
                     @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
@@ -42,7 +40,7 @@
 										</div>
 										<!-- <p class="mg-b-20">A form control layout using basic layout.</p> -->
                                         <div class="row">
-                                         <input type="hidden" class="form-control" id="exampleInputEmail1" name="userid" value="JA{{ rand(1000, 9999) }}" placeholder="Enter First Name">
+                                         <input type="hidden" class="form-control" id="exampleInputEmail1" name="userid" value="{{ $user->userid }}" placeholder="Enter First Name">
 
                                         </div>
 										<div class="row">
@@ -50,12 +48,12 @@
                                             
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">First Name</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="first_name" placeholder="Enter First Name">
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $user->first_name }}" name="first_name" placeholder="Enter First Name">
                                                 </div>
                                                 
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Email address</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" value="{{ $user->email }}" name="email" placeholder="Enter email">
                                                 </div>
                                             
                                             </div>
@@ -63,11 +61,11 @@
                                                 
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Last Name</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="last_name" placeholder="Enter Last Name">
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $user->last_name }}" name="last_name" placeholder="Enter Last Name">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Phone Number</label>
-                                                    <input type="text" class="form-control" id="exampleInputPassword1" name="phonenumber" placeholder="Phone Number">
+                                                    <input type="text" class="form-control" id="exampleInputPassword1" value="{{ $user->phonenumber }}" name="phonenumber" placeholder="Phone Number">
                                                 </div>
                                             
                                         
@@ -75,19 +73,19 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">DOB</label>
-                                                    <input type="date" class="form-control" id="exampleInputPassword1" name="dob" placeholder="">
+                                                    <input type="date" class="form-control" id="exampleInputPassword1" value="{{ $user->dob }}" name="dob" placeholder="">
                                                 </div>
                                                
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Blood Group</label>
-                                                    <input type="text" class="form-control" id="exampleInputPassword1" name="bloodgrp" placeholder="Enter Blood Group">
+                                                    <input type="text" class="form-control" id="exampleInputPassword1" value="{{ $user->bloodgrp }}" name="bloodgrp" placeholder="Enter Blood Group">
                                                 </div>
                                             </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Educational Qualification</label>
-                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="qualification" placeholder="Enter Educational Qualification">
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="qualification" value="{{ $user->qualification }}" placeholder="Enter Educational Qualification">
                                                     </div>
                                                     
                                                 </div>
@@ -95,14 +93,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Password</label>
-                                                        <input type="password" class="form-control" id="exampleInputPassword1" name="passowrd" placeholder="Enter Password">
+                                                        <input type="password" class="form-control" id="exampleInputPassword1" value="{{ Auth::user()->password }}" name="password" placeholder="Enter Password">
                                                     </div>
                                                     
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Photo</label>
-                                                        <input type="file" name="userphoto" class="form-control" id="exampleInputPassword1" >
+                                                        <input type="file" name="userphoto" class="form-control" value="{{ $user->userphoto }}" id="exampleInputPassword1" >
                                                     </div>
                                                     
                                                 </div>

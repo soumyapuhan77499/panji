@@ -17,14 +17,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    // protected $fillable = [
+    //     'userid',
+    //     'name','first_name','last_name','email','phonenumber','dob','password','bloodgrp','qualification',
+    //     'userphoto','fathername','mothername','	marital','spouse','datejoin','seba','templeid','bedhaseba','status',
+        
+        
+    // ];
     protected $fillable = [
-        'userid',
-        'name','first_name','last_name','email','phonenumber','dob','password','bloodgrp','qualification',
-        'userphoto','fathername','mothername','	marital','spouse','datejoin','seba','templeid','bedhaseba','status',
-        
-        
+        'userid','first_name','last_name','email', 'password'
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -47,5 +49,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role === 'admin';
+    }
+
+    public function bankdetail()
+    {
+        return $this->hasOne(Bankdetail::class);
     }
 }

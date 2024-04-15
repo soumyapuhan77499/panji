@@ -17,7 +17,37 @@ class sebayatregisterController extends Controller
     public function sebayatregister(){
         return view('sebayatregister');
     }
+    public function sebayatlist(){
+        $sebayatlist = User::all();
+        return view('sebayatlist',compact('sebayatlist'));
+    }
+    
     public function saveregister(Request $request){
+
+        $request->validate([
+           'first_name' => 'required',
+           'last_name' => 'required',
+           'email' => 'required|email',
+           'phonenumber' => 'required',
+           'dob' => 'required',
+           'password' => 'required|min:8',
+           'bloodgrp' => 'required',
+           'qualification' => 'required',
+           'userphoto' => 'required|file|max:10240',
+           'fathername' => 'required',
+           'mothername' => 'required',
+
+           'marital' => 'required',
+           'spouse' => 'required|min:8',
+           'childrenname' => 'required',
+           'idproof' => 'required',
+           'idnumber' => 'required',
+           'uploadoc.*' => 'required|file|max:10240',
+           'preaddress' => 'required',
+           'preaddress.required' => 'The present address field is required.',
+           
+            
+        ]);
         $userdata = new User();
         if($request->hasFile('userphoto')){
 
