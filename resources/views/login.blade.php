@@ -19,7 +19,7 @@
                             <div class="card-sigin mt-5 mt-md-0">
                                 <!-- Demo content-->
                                 <div class="main-card-signin d-md-flex">
-                                    <div class="wd-100p"><div class="d-flex mb-4"><a href="{{url('index')}}"><img src="{{asset('assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a></div>
+                                    <div class="wd-100p"><div class="d-flex mb-4"><a href="{{url('/')}}"><img src="{{asset('assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a></div>
                                         <div class="">
                                             <div class="main-signup-header">
                                                 <h2>Welcome back!</h2>
@@ -34,7 +34,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="panel-body tabs-menu-body border-0 p-3">
-                                                    <div class="tab-content">
+                                                 <div class="tab-content">
                                                         <div class="tab-pane active" id="tab5">
                                                         <form action="{{ route('authenticate') }}" method="post">
                     @csrf
@@ -47,20 +47,7 @@
                                                                 
                                                                 <!-- <a href="{{url('index')}}" class="btn btn-primary btn-block">Sign In</a> -->
                                                                 <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Login">
-                                                                <div class="mt-4 d-flex mx-auto text-center justify-content-center mb-2">
-                                                                    <button class="btn btn-icon btn-facebook me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-facebook tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-twitter tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-linkedin tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                    <button class="btn  btn-icon me-3" type="button">
-                                                                        <span class="btn-inner--icon"> <i class="bx bxl-instagram tx-18 tx-prime"></i> </span>
-                                                                    </button>
-                                                                </div>
+                                                              
                                                                 </form>
                                                         </div>
                                                         <div class="tab-pane" id="tab6">
@@ -87,10 +74,6 @@
                                                 </div>
                                             </div>
 
-                                                <div class="main-signin-footer text-center mt-3">
-                                                    <p><a href="{{url('forgot')}}" class="mb-3">Forgot password?</a></p>
-                                                    <p>Don't have an account? <a href="{{url('register')}}">Create an Account</a></p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

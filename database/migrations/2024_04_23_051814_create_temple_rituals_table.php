@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bankdetails', function (Blueprint $table) {
+        Schema::create('temple_rituals', function (Blueprint $table) {
             $table->id();
-            $table->string('userid');
-            $table->string('bankname');
-            $table->string('branchname');
-            $table->string('ifsccode');
-            $table->string('accname');
-            $table->string('accnumber');
+            $table->string('ritual_id');
+            $table->string('ritual_name');
+            $table->string('time');
+            $table->string('niti_name');
+            $table->string('sebak_name');
+            $table->string('description');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bankdetails');
+        Schema::dropIfExists('temple_rituals');
     }
 };

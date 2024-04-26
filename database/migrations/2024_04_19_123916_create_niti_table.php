@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('childrennames', function (Blueprint $table) {
+        Schema::create('niti', function (Blueprint $table) {
             $table->id();
-            $table->string('userid');
-            $table->string('childrenname');
+            $table->string('niti_id');
+            $table->string('niti_name');
+            $table->string('description');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('childrennames');
+        Schema::dropIfExists('niti');
     }
 };

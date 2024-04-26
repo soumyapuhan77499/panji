@@ -42,7 +42,7 @@
 										</div>
 										<!-- <p class="mg-b-20">A form control layout using basic layout.</p> -->
                                         <div class="row">
-                                         <input type="hidden" class="form-control" id="exampleInputEmail1" name="userid" value="JA{{ rand(1000, 9999) }}" placeholder="Enter First Name">
+                                         <input type="hidden" class="form-control" id="exampleInputEmail1" name="userid" value="JA{{ rand(1000, 9999) }}" placeholder="">
 
                                         </div>
 										<div class="row">
@@ -102,7 +102,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Photo</label>
-                                                        <input type="file" name="userphoto" class="form-control" id="exampleInputPassword1" >
+                                                        <input type="file" name="userphoto" class="form-control" id="userphoto" >
                                                     </div>
                                                     
                                                 </div>
@@ -185,7 +185,6 @@
                                                         <div class="form-group  mt-4">
                                                             <button type="button" class="btn btn-primary add_item_btn" id="addInput">Add More</button>
                                                         </div>
-                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -459,7 +458,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Bedha Seba</label>
-                                                    <input type="tetx" class="form-control" id="exampleInputPassword1" anem="bedhaseba" placeholder="Enter Bedha Seba">
+                                                    <input type="text" class="form-control" id="exampleInputPassword1" anem="bedhaseba" placeholder="Enter Bedha Seba">
                                                 </div>
                                               
                                             

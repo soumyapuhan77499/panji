@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->string('first_name')->after('name')->nullable();
-            $table->string('last_name')->after('first_name')->nullable();
-            $table->string('phonenumber')->after('email')->nullable();
+        Schema::table('event', function (Blueprint $table) {
+            $table->string('event_id')->after('id')->nullable();
+
         });
     }
 
@@ -28,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('event', function (Blueprint $table) {
             //
         });
     }

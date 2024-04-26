@@ -13,14 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('idcarddetails', function (Blueprint $table) {
-            $table->id();
-            $table->string('userid');
-            $table->string('idproof');
-            $table->string('idnumber');
-            $table->string('uploadoc');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('idcarddetails');
+        //
     }
 };
