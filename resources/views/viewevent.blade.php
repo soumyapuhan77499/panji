@@ -64,7 +64,7 @@
                                 <label class="form-label">Date</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="Last Name" value="{{$eventinfo->date}}" readonly>
+                                <input type="text" class="form-control" placeholder="Last Name" value="{{ date('d-m-Y', strtotime($eventinfo->date)) }}" readonly>
                             </div>
                         </div>
                     </div>

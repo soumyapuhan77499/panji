@@ -32,6 +32,7 @@ class TempleRitualController extends Controller
     
         $ritual->ritual_id = $request->ritual_id;
         $ritual->ritual_name = $request->ritual_name;
+        $ritual->date = $request->date;
         $ritual->time = $request->time;
         $ritual->description = $request->description;
         

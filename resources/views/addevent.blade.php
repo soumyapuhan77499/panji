@@ -70,7 +70,8 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Date</label>
-                                    <input type="date" class="form-control" id="date" name="date" placeholder="">
+                                    <input type="date" class="form-control" id="date" name="date" placeholder="dd-mm-yyyy">
+                                    
                                 </div>
                                 
                                 <div class="form-group">
@@ -137,6 +138,8 @@
             document.getElementById('Message').style.display = 'none';
         }, 3000);
     </script>
+    
+
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @endsection

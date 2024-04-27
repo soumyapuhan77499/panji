@@ -69,7 +69,7 @@
                                                 @foreach ($manageevents as $event)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $event->date }}</td> 
+                                                    <td>{{ date('d-m-Y', strtotime($event->date)) }}</td>
                                                     <td>{{ $event->event_name }}</td> 
                                                     <td>{{ $event->tithi }}</td> 
                                                     <td>{{ $event->sun_rise }}</td> 

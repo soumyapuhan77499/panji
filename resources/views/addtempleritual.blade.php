@@ -53,18 +53,25 @@
                             <input type="hidden" class="form-control" id="ritual_id" name="ritual_id" value="TR{{ rand(1000, 9999) }}" placeholder="">
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="ritual_name">Ritual Name</label>
                                     <input type="text" class="form-control" id="ritual_name" name="ritual_name" placeholder="Enter Ritual Name">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="time">Time</label>
                                     <input type="text" class="form-control" id="time" name="time" placeholder="Enter Time">
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Date">Date</label>
+                                    <input type="date" class="form-control" id="date" name="date" placeholder="dd-mm-yyyy">
+                                </div>
+                            </div>
+                           
                         </div>
                         <div class="row">
                             

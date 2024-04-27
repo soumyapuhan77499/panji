@@ -58,6 +58,7 @@
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
                                                     <th class="border-bottom-0">Ritual Name</th>
+                                                    <th class="border-bottom-0">Date</th>
                                                     <th class="border-bottom-0">Time</th>
                                                     <th class="border-bottom-0">Niti Name</th>
                                                     <th class="border-bottom-0">Sebak Name</th>
@@ -70,7 +71,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $ritual->ritual_name }}</td> 
-                                                    <td>{{ $ritual->time }}</td> 
+                                                    <td>{{ date('d-m-Y', strtotime($ritual->date)) }}</td>
+                                                    <td>{{ $ritual->time }}</td>       
                                                     <td>{{ $ritual->niti_name }}</td>       
                                                     <td>{{ $ritual->sebak_name }}</td>                                                   
                                                     <td>{{ $ritual->description }}</td> 
