@@ -89,6 +89,7 @@ class TempleRitualController extends Controller
         // Update the scalar fields
         $ritual->ritual_name = $request->ritual_name;
         $ritual->time = $request->time;
+        $ritual->date = $request->date;
         $ritual->description = $request->description;
     
         // Update the multiple select fields
