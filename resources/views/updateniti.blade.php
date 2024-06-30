@@ -62,6 +62,38 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="niti_date">Niti Date</label>
+                                    <input type="date" class="form-control" id="niti_date" name="niti_date" value="{{ $niti->niti_date }}" placeholder="Enter Niti Date">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="niti_time">Niti Time</label>
+                                    <input type="time" class="form-control" id="niti_time" name="niti_time" value="{{ $niti->niti_time }}" placeholder="Enter Niti Time">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="niti_type">Niti Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="special_niti" name="niti_type" value="special" {{ $niti->niti_type == 'special' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="special_niti">
+                                            Special Niti
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="daily_niti" name="niti_type" value="daily" {{ $niti->niti_type == 'daily' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="daily_niti">
+                                            Daily Niti
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
