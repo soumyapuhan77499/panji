@@ -36,31 +36,54 @@ class NitiController extends Controller
     
 
     public function end(Request $request)
-{
-    $niti = Niti::find($request->niti_id);
-
-    if (!$niti) {
+    {
+        $niti = Niti::find($request->niti_id);
+    
+        if (!$niti) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Niti not found',
+                'data' => []
+            ], 404);
+        }
+    
+        $current_time = Carbon::now('Asia/Kolkata');
+    
+        // Retrieve resume_time
+        $resume_time = Carbon::parse($niti->resume_time, 'Asia/Kolkata');
+    
+        // Calculate new duration in seconds
+        $newDurationInSeconds = $current_time->diffInSeconds($resume_time);
+    
+        // Retrieve and parse previous running time
+        $previousRunningTime = Carbon::createFromFormat('H:i:s', $niti->running_time);
+        $previousRunningTimeInSeconds = ($previousRunningTime->hour * 3600) + ($previousRunningTime->minute * 60) + $previousRunningTime->second;
+    
+        // Calculate total duration in seconds
+        $totalDurationInSeconds = $previousRunningTimeInSeconds + $newDurationInSeconds;
+    
+        // Calculate hours, minutes, seconds
+        $hours = floor($totalDurationInSeconds / 3600);
+        $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+        $seconds = $totalDurationInSeconds % 60;
+    
+        // Format total duration into HH:MM:SS
+        $formattedTotalDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+    
+        // Update niti attributes
+        $niti->niti_status = 'completed';
+        $niti->end_time = $current_time;
+        $niti->duration = $formattedTotalDuration;
+        $niti->save();
+    
         return response()->json([
-            'status' => 404,
-            'message' => 'Niti not found',
-            'data' => []
-        ], 404);
+            'status' => 200,
+            'message' => 'Niti completed successfully',
+            'data' => $niti
+        ], 200);
     }
+    
 
-    $current_time = Carbon::now('Asia/Kolkata');
-
-    $niti->niti_status = 'completed';
-    $niti->end_time = $current_time;
-    // Calculate duration in seconds
-    $niti->duration = $request->duration;
-    $niti->save();
-
-    return response()->json([
-        'status' => 200,
-        'message' => 'Niti completed successfully',
-        'data' => $niti
-    ], 200);
-}
 public function pause(Request $request)
 {
     $niti = Niti::find($request->niti_id);
@@ -73,9 +96,26 @@ public function pause(Request $request)
         ], 404);
     }
 
+    // Assuming 'start_time' is stored as a time string like "12:17:31"
+    $start_time = $request->pause_time;
+
+    // Calculate current time in the same format as start_time
     $current_time = Carbon::now('Asia/Kolkata');
+    // Calculate running time duration in seconds
+    $durationInSeconds = $current_time->diffInSeconds($start_time);
+
+    // Calculate hours, minutes, seconds
+    $hours = floor($durationInSeconds / 3600);
+    $minutes = floor(($durationInSeconds % 3600) / 60);
+    $seconds = $durationInSeconds % 60;
+
+    // Format duration into HH:MM:SS
+    $formattedDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+
+    // Update niti attributes
     $niti->niti_status = 'paused';
     $niti->pause_time = $current_time;
+    $niti->running_time = $formattedDuration; // Store running time formatted as HH:MM:SS
     $niti->save();
 
     return response()->json([
@@ -84,6 +124,8 @@ public function pause(Request $request)
         'data' => $niti
     ], 200);
 }
+
+
 public function resume(Request $request)
 {
     $niti = Niti::find($request->niti_id);
