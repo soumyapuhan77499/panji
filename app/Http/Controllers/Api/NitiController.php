@@ -13,73 +13,117 @@ class NitiController extends Controller
     public function start(Request $request)
     {
         $niti = Niti::find($request->niti_id);
-
-        $current_time = Carbon::now('Asia/Kolkata');
-
+    
         if (!$niti) {
-            return response()->json(['message' => 'Niti not found'], 404);
+            return response()->json([
+                'status' => 404,
+                'message' => 'Niti not found',
+                'data' => []
+            ], 404);
         }
-
+    
+        $current_time = Carbon::now('Asia/Kolkata');
         $niti->niti_status = 'started';
         $niti->start_time = $current_time;
         $niti->save();
-
-        return response()->json(['message' => 'Niti started successfully', 'niti' => $niti]);
+    
+        return response()->json([
+            'status' => 200,
+            'message' => 'Niti started successfully',
+            'data' => $niti
+        ], 200);
     }
+    
 
     public function end(Request $request)
-    {
-        $niti = Niti::find($request->niti_id);
+{
+    $niti = Niti::find($request->niti_id);
 
-        if (!$niti) {
-            return response()->json(['message' => 'Niti not found'], 404);
-        }
-
-        $current_time = Carbon::now('Asia/Kolkata');
-
-        $niti->niti_status = 'completed';
-        $niti->end_time = $current_time;
-        // Calculate duration in seconds
-        $niti->duration = $request->duration;
-        $niti->save();
-
-        return response()->json(['message' => 'Niti completed successfully', 'niti' => $niti]);
+    if (!$niti) {
+        return response()->json([
+            'status' => 404,
+            'message' => 'Niti not found',
+            'data' => []
+        ], 404);
     }
 
-    public function pause(Request $request)
-    {
-        $niti = Niti::find($request->niti_id);
-        if (!$niti) {
-            return response()->json(['message' => 'Niti not found'], 404);
-        }
-        $current_time = Carbon::now('Asia/Kolkata');
+    $current_time = Carbon::now('Asia/Kolkata');
 
-        $niti->niti_status = 'paused';
-        $niti->pause_time = $current_time;
-        $niti->save();
+    $niti->niti_status = 'completed';
+    $niti->end_time = $current_time;
+    // Calculate duration in seconds
+    $niti->duration = $request->duration;
+    $niti->save();
 
-        return response()->json(['message' => 'Niti paused successfully', 'niti' => $niti]);
+    return response()->json([
+        'status' => 200,
+        'message' => 'Niti completed successfully',
+        'data' => $niti
+    ], 200);
+}
+public function pause(Request $request)
+{
+    $niti = Niti::find($request->niti_id);
+
+    if (!$niti) {
+        return response()->json([
+            'status' => 404,
+            'message' => 'Niti not found',
+            'data' => []
+        ], 404);
     }
 
-    public function resume(Request $request)
-    {
-        $niti = Niti::find($request->niti_id);
-        if (!$niti) {
-            return response()->json(['message' => 'Niti not found'], 404);
-        }
-        $current_time = Carbon::now('Asia/Kolkata');
+    $current_time = Carbon::now('Asia/Kolkata');
+    $niti->niti_status = 'paused';
+    $niti->pause_time = $current_time;
+    $niti->save();
 
-        $niti->niti_status = 'started';
-        $niti->resume_time = $current_time;
-        $niti->save();
+    return response()->json([
+        'status' => 200,
+        'message' => 'Niti paused successfully',
+        'data' => $niti
+    ], 200);
+}
+public function resume(Request $request)
+{
+    $niti = Niti::find($request->niti_id);
 
-        return response()->json(['message' => 'Niti resumed successfully', 'niti' => $niti]);
+    if (!$niti) {
+        return response()->json([
+            'status' => 404,
+            'message' => 'Niti not found',
+            'data' => []
+        ], 404);
     }
 
-    public function manageniti()
-    {
-        $manage_niti = Niti::where('status', 'active')->get();
-        
-        return response()->json(['manage_niti' => $manage_niti]);
+    $current_time = Carbon::now('Asia/Kolkata');
+    $niti->niti_status = 'started';
+    $niti->resume_time = $current_time;
+    $niti->save();
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Niti resumed successfully',
+        'data' => $niti
+    ], 200);
+}
+
+public function manageniti()
+{
+    $manage_niti = Niti::where('status', 'active')->get();
+
+    if ($manage_niti->isEmpty()) {
+        return response()->json([
+            'status' => 404,
+            'message' => 'No data found',
+            'data' => []
+        ], 404);
     }
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Data retrieved successfully',
+        'data' => $manage_niti
+    ], 200);
+}
 }
