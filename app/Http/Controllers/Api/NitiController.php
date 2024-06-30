@@ -110,7 +110,11 @@ public function resume(Request $request)
 
 public function manageniti()
 {
-    $manage_niti = Niti::where('status', 'active')->get();
+    $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
+
+    $manage_niti = Niti::where('status', 'active')
+    ->whereDate('niti_date', $today) // Filter by today's date
+    ->get();
 
     if ($manage_niti->isEmpty()) {
         return response()->json([
