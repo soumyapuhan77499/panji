@@ -97,7 +97,7 @@ public function pause(Request $request)
     }
 
     // Assuming 'start_time' is stored as a time string like "12:17:31"
-    $start_time = $request->pause_time;
+    $start_time = Carbon::parse($niti->start_time, 'Asia/Kolkata');
 
     // Calculate current time in the same format as start_time
     $current_time = Carbon::now('Asia/Kolkata');
