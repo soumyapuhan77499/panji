@@ -60,19 +60,19 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="event_name">Niti Name</label>
+                                    <label for="niti_name">Niti Name</label>
                                     <input type="text" class="form-control" id="niti_name" name="niti_name" placeholder="Enter Niti Name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="event_name">Niti Date</label>
+                                    <label for="niti_date">Niti Date</label>
                                     <input type="date" class="form-control" id="niti_date" name="niti_date" placeholder="Enter Niti Date">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="event_name">Niti Time</label>
+                                    <label for="niti_time">Niti Time</label>
                                     <input type="time" class="form-control" id="niti_time" name="niti_time" placeholder="Enter Niti Time">
                                 </div>
                             </div>
@@ -80,8 +80,27 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="special_niti">Description</label>
+                                    <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="niti_type">Niti Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="special_niti" name="niti_type" value="special">
+                                        <label class="form-check-label" for="special_niti">
+                                            Special Niti
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="daily_niti" name="niti_type" value="daily">
+                                        <label class="form-check-label" for="daily_niti">
+                                            Daily Niti
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,6 +112,7 @@
                             </div>
                         </div>
                     </form>
+                    
                     
                 </div>
             </div>
