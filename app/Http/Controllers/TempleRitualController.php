@@ -32,6 +32,7 @@ class TempleRitualController extends Controller
     
         $ritual->ritual_id = $request->ritual_id;
         $ritual->ritual_name = $request->ritual_name;
+        $ritual->language = $request->language;
         $ritual->date = $request->date;
         $ritual->time = $request->time;
         $ritual->description = $request->description;
@@ -88,6 +89,7 @@ class TempleRitualController extends Controller
 
         // Update the scalar fields
         $ritual->ritual_name = $request->ritual_name;
+        $ritual->language = $request->language;
         $ritual->time = $request->time;
         $ritual->date = $request->date;
         $ritual->description = $request->description;

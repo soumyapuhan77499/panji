@@ -156,105 +156,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-									<div class="card">
-										<div class="card-header pb-1">
-											<h3 class="card-title mb-2">Browser Usage</h3>
-										</div>
-										<div class="card-body p-0">
-											<div class="browser-stats">
-												<div class="d-flex align-items-center item  border-bottom my-2">
-													<div class="d-flex">
-														<img src="{{asset('assets/img/svgicons/chrome.svg')}}" alt="img" class="ht-30 wd-30 me-2">
-														<div class="">
-															<h6 class="">Chrome</h6>
-															<span class="text-muted tx-12">Google, Inc.</span>
-														</div>
-													</div>
-													<div class="ms-auto my-auto">
-														<div class="d-flex">
-															<span class="me-4 mt-1 font-weight-semibold tx-16">35,502</span>
-															<span class="text-success fs-13 my-auto"><i class="fe fe-trending-up text-success me-2 ms-1 my-auto"></i>12.75%</span>
-														</div>
-													</div>
-												</div>
-												<div class="d-flex align-items-center item  border-bottom my-2">
-													<div class="d-flex">
-														<img src="{{asset('assets/img/svgicons/edge.svg')}}" alt="img" class="ht-30 wd-30 me-2">
-														<div class="">
-															<h6 class="">Edge</h6>
-															<span class="text-muted tx-12">Microsoft Corporation, Inc.</span>
-														</div>
-													</div>
-													<div class="ms-auto my-auto">
-														<div class="d-flex">
-															<span class="me-4 mt-1 font-weight-semibold tx-16">25,364</span>
-															<span class="text-success"><i class="fe fe-trending-down text-danger me-2 ms-1 my-auto"></i>24.37%</span>
-														</div>
-													</div>
-												</div>
-												<div class="d-flex align-items-center item  border-bottom my-2">
-													<div class="d-flex">
-														<img src="{{asset('assets/img/svgicons/firefox.svg')}}" alt="img" class="ht-30 wd-30 me-2">
-														<div class="">
-															<h6 class="">Firefox</h6>
-															<span class="text-muted tx-12">Mozilla Foundation, Inc.</span>
-														</div>
-													</div>
-													<div class="ms-auto my-auto">
-														<div class="d-flex">
-															<span class="me-4 mt-1 font-weight-semibold tx-16">14,635</span>
-															<span class="text-success"><i class="fe fe-trending-up text-success me-2 ms-1 my-auto"></i>15,63%</span>
-														</div>
-													</div>
-												</div>
-												<div class="d-flex align-items-center item  border-bottom my-2">
-													<div class="d-flex">
-														<img src="{{asset('assets/img/svgicons/safari.svg')}}" alt="img" class="ht-30 wd-30 me-2">
-														<div class="">
-															<h6 class="">Safari</h6>
-															<span class="text-muted tx-12">Apple Corporation, Inc.</span>
-														</div>
-													</div>
-													<div class="ms-auto my-auto">
-														<div class="d-flex">
-															<span class="me-4 mt-1 font-weight-semibold tx-16">35,657</span>
-															<span class="text-danger"><i class="fe fe-trending-up text-success me-2 ms-1 my-auto"></i>12.54%</span>
-														</div>
-													</div>
-												</div>
-												<div class="d-flex align-items-center item my-2">
-													<div class="d-flex">
-														<img src="{{asset('assets/img/svgicons/opera.svg')}}" alt="img" class="ht-30 wd-30 me-2">
-														<div class="">
-															<h6 class="">Opera</h6>
-															<span class="text-muted tx-12">Opera, Inc.</span>
-														</div>
-													</div>
-													<div class="ms-auto my-auto">
-														<div class="d-flex">
-															<span class="me-4 mt-1 font-weight-semibold tx-16">12,563</span>
-															<span class="text-danger"><i class="fe fe-trending-down text-danger me-2 ms-1 my-auto"></i>15.12%</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								
 							</div>
 						</div>
 						<div class="col-xl-7 col-lg-12 col-md-12 col-sm-12">
-							<div class="card custom-card overflow-hidden">
-								<div class="card-header border-bottom-0">
-									<div>
-										<h3 class="card-title mb-2 ">Project Budget</h3> <span class="d-block tx-12 mb-0 text-muted"></span>
-									</div>
-								</div>
-								<div class="card-body">
-									<div id="statistics1"></div>
-								</div>
-							</div>
+						
 							<div class="row">
 								<div class="col-sm-12 col-lg-12 col-xl-6">
 									<div class="card overflow-hidden">
@@ -388,85 +294,77 @@
 									</div>
 								</div>
 								<div class="col-lg-12 col-xl-6">
-									<div class="card">
-										<div class="card-header pb-3">
-											<h3 class="card-title mb-2">MAIN TASKS</h3>
-										</div>
-										<div class="card-body p-0 customers mt-1">
-											<div class="">
-												<label class="p-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														accurate information at any given point.
-													</span>
-													<span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														sharing the information with clients or stakeholders.
-													</span>
-													<span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2">Today</span></span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														Hearing the information and responding .
-													</span>
-													<span class="ms-auto"><span class="badge badge-primary-transparent font-weight-semibold px-2 py-1 tx-11 me-2 float-end">22 hrs</span></span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														Setting up and customizing your own sales.
-													</span>
-													<span class="ms-auto"> <span class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">1 Day</span></span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														To have a complete 360° overview of sales information, having.
-													</span>
-													<span class="ms-auto"> <span class="badge badge-light-transparent font-weight-semibold px-2 py-1 tx-11 me-2">2 Days</span></span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto">
-														New Admin Launched.
-													</span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto mb-4">
-														To maximize profits and improve productivity.
-													</span>
-												</label>
-												<label class="p-2 mt-2 d-flex">
-													<span class="check-box mb-0 ms-2">
-														<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-													</span>
-													<span class="ms-3 me-5 my-auto mb-4">
-														To improve profits.
-													</span>
-												</label>
+										<div class="card overflow-hidden">
+											<div class="card-header pb-1">
+												<div class="card-title mb-2">Warehouse Operating Costs</div>
+											</div>
+											<div class="card-body p-0">
+												<div class="list-group projects-list border-0">
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-0">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Order Picking</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">3,876</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted tx-12"><i class="fa fa-caret-up text-success me-1"></i> <span class="text-success">03%</span> last month</span>
+															<span class="text-muted  tx-11">5 days ago</span>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Storage</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">2,178</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted  tx-12"><i class="fa fa-caret-down text-danger me-1"></i><span class="text-danger"> 16%</span> last month</span>
+															<span class="text-muted  tx-11">2 days ago</span>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Shipping</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">1,367</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 06%</span> last month</span>
+															<span class="text-muted  tx-11">1 days ago</span>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Receiving</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">678</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted  tx-12"><i class="fa fa-caret-down text-danger me-1"></i><span class="text-danger"> 25%</span> last month</span>
+															<span class="text-muted  tx-11">10 days ago</span>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Review</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">578</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 55%</span> last month</span>
+															<span class="text-muted  tx-11">11 days ago</span>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top mb-3">
+														<div class="d-flex w-100 justify-content-between">
+															<p class="tx-13 mb-2 font-weight-semibold text-dark">Profit</p>
+															<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">$27,215</h4>
+														</div>
+														<div class="d-flex w-100 justify-content-between">
+															<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 32%</span> last month</span>
+															<span class="text-muted  tx-11">11 days ago</span>
+														</div>
+													</a>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								
 							</div>
 						</div>
 						<!-- </div> -->
@@ -474,279 +372,7 @@
 					<!-- row closed -->
 
 					<!-- row -->
-					<div class="row row-sm">
-						<div class="col-sm-12 col-lg-12 col-xl-3">
-							<div class="card">
-								<div class="card-header pb-3">
-									<h3 class="card-title mb-2">SALES ACTIVITY</h3>
-								</div>
-								<div class="card-body p-0 customers mt-1">
-									<div class="country-card pt-0">
-										<div class="mb-4">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">India</span>
-												<div class="ms-auto"><span class="text-danger mx-1"><i class="fe fe-trending-down"></i></span><span class="number-font">$32,879</span> (65%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: 60%"></div>
-											</div>
-										</div>
-										<div class="mb-4">
-											<div class="d-flex mb-1">
-												<span class="tx-13 font-weight-semibold">Russia</span>
-												<div class="ms-auto"><span class="text-info mx-1"><i class="fe fe-trending-up"></i></span><span class="number-font">$22,710</span> (55%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: 50%"></div>
-											</div>
-										</div>
-										<div class="mb-4">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">Canada</span>
-												<div class="ms-auto"><span class="text-danger mx-1"><i class="fe fe-trending-down"></i></span><span class="number-font">$56,291</span> (69%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" style="width: 80%"></div>
-											</div>
-										</div>
-										<div class="mb-4">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">Brazil</span>
-												<div class="ms-auto"><span class="text-success mx-1"><i class="fe fe-trending-up"></i></span><span class="number-font">$34,209</span> (60%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 60%"></div>
-											</div>
-										</div>
-										<div class="mb-4">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">United States</span>
-												<div class="ms-auto"><span class="text-success mx-1"><i class="fe fe-trending-up"></i></span><span class="number-font">$45,870</span> (86%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 80%"></div>
-											</div>
-										</div>
-										<div class="mb-4">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">Germany</span>
-												<div class="ms-auto"><span class="text-success mx-1"><i class="fe fe-trending-up"></i></span><span class="number-font">$67,357</span> (73%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 70%"></div>
-											</div>
-										</div>
-										<div class="mb-0">
-											<div class="d-flex">
-												<span class="tx-13 font-weight-semibold">U.A.E</span>
-												<div class="ms-auto"><span class="text-danger mx-1"><i class="fe fe-trending-down"></i></span><span class="number-font">$56,291</span> (69%)</div>
-											</div>
-											<div class="progress ht-8 br-5 mt-2">
-												<div class="progress-bar progress-bar-striped progress-bar-animated bg-purpple" style="width: 80%"></div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-12 col-lg-12">
-							<div class="card overflow-hidden">
-								<div class="card-header pb-1">
-									<div class="card-title mb-2">Warehouse Operating Costs</div>
-								</div>
-								<div class="card-body p-0">
-									<div class="list-group projects-list border-0">
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-0">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Order Picking</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">3,876</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted tx-12"><i class="fa fa-caret-up text-success me-1"></i> <span class="text-success">03%</span> last month</span>
-												<span class="text-muted  tx-11">5 days ago</span>
-											</div>
-										</a>
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Storage</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">2,178</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted  tx-12"><i class="fa fa-caret-down text-danger me-1"></i><span class="text-danger"> 16%</span> last month</span>
-												<span class="text-muted  tx-11">2 days ago</span>
-											</div>
-										</a>
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Shipping</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">1,367</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 06%</span> last month</span>
-												<span class="text-muted  tx-11">1 days ago</span>
-											</div>
-										</a>
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Receiving</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">678</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted  tx-12"><i class="fa fa-caret-down text-danger me-1"></i><span class="text-danger"> 25%</span> last month</span>
-												<span class="text-muted  tx-11">10 days ago</span>
-											</div>
-										</a>
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Review</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">578</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 55%</span> last month</span>
-												<span class="text-muted  tx-11">11 days ago</span>
-											</div>
-										</a>
-										<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start border-bottom-0  border-start-0 border-end-0 border-top mb-3">
-											<div class="d-flex w-100 justify-content-between">
-												<p class="tx-13 mb-2 font-weight-semibold text-dark">Profit</p>
-												<h4 class="text-dark mb-0 font-weight-semibold text-dark tx-18">$27,215</h4>
-											</div>
-											<div class="d-flex w-100 justify-content-between">
-												<span class="text-muted  tx-12"><i class="fa fa-caret-up text-success me-1"></i><span class="text-success"> 32%</span> last month</span>
-												<span class="text-muted  tx-11">11 days ago</span>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12 col-xl-3">
-							<div class="card">
-								<div class="card-header bg-transparent pb-0">
-									<div>
-										<h3 class="card-title mb-2">Timeline</h3>
-									</div>
-								</div>
-								<div class="card-body mt-0">
-									<div class="latest-timeline mt-4">
-										<ul class="timeline mb-0">
-											<li>
-												<div class="featured_icon danger">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">23 Sep, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Anita Letterback</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-											<li>
-												<div class="featured_icon success">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li  class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">16 Aug, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Paddy O'Furniture</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-											<li>
-												<div class="featured_icon primary">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">23 Feb, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark">Olive Yew</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-											<li>
-												<div class="featured_icon warning">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">21 june, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Maureen Biologist</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt. </p>
-											</li>
-											<li>
-												<div class="featured_icon teal">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">04 Aug, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Peg Legge</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-											<li>
-												<div class="featured_icon info">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity">
-												<div><span class="tx-11 text-muted float-end">04 Aug, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Letterbac</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-											<li>
-												<div class="featured_icon danger">
-													<i class="fas fa-circle"></i>
-												</div>
-											</li>
-											<li class="mt-0 activity mb-2">
-												<div><span class="tx-11 text-muted float-end">23 Sep, 2021</span></div>
-												<a href="javascript:void(0);" class="tx-12 text-dark">
-												<p class="mb-1 font-weight-semibold text-dark tx-13">Anita Letterback</p>
-												</a>
-												<p class="text-muted mt-0 mb-0 tx-12">Lorem ipsum dolor tempor incididunt . </p>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-12 col-lg-12">
-							<div class="card">
-								<div class="card-header pb-0">
-									<h3 class="card-title mb-2">Weekly Visitors</h3>
-								</div>
-								<div class="card-body pb-0">
-									<div class="row mb-4">
-										<div class="col-6">
-											<div class="text-muted tx-12 text-center mb-2">Average Male Visitors</div>
-											<div class="d-flex justify-content-center align-items-center">
-												<span class="me-3 tx-26 font-weight-semibold">2,132</span>
-												<span class="text-success font-weight-semibold"><i class="fa fa-caret-up me-2"></i>0.23%</span>
-											</div>
-										</div>
-										<div class="col-6">
-											<div class="text-muted tx-12 text-center mb-2">Average Female Visitors</div>
-											<div class="d-flex justify-content-center align-items-center">
-												<span class="me-3 tx-26 font-weight-semibold">1,053</span>
-												<span class="text-danger font-weight-semibold"><i class="fa fa-caret-down me-2"></i>0.11%</span>
-											</div>
-										</div>
-									</div>
-									<div id="Viewers"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 					<!-- row closed -->
 
 					<!-- row  -->

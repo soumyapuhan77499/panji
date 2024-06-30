@@ -135,7 +135,7 @@ class LoginRegisterController extends Controller
             // Check if the user is active
             if ($user->status == 'active') {
                 // Check if the user has the required role to login
-                    return redirect()->intended('/user/dashboard');
+                    return redirect()->intended('/admin/dashboard');
             } else {
                 // User is not active, logout and redirect back with error message
                 Auth::logout();

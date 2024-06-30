@@ -54,6 +54,16 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="language">Choose Language</label>
+                                <select class="form-control" id="language" name="language">
+                                    <option value="English">English</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Odia">Odia</option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="ritual_name">Ritual Name</label>
                                     <input type="text" class="form-control" id="ritual_name" name="ritual_name" placeholder="Enter Ritual Name">
@@ -62,20 +72,20 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="time">Time</label>
-                                    <input type="text" class="form-control" id="time" name="time" placeholder="Enter Time">
+                                    <input type="time" class="form-control" id="time" name="time" placeholder="Enter Time">
                                 </div>
                             </div>
+                          
+                           
+                        </div>
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="Date">Date</label>
                                     <input type="date" class="form-control" id="date" name="date" placeholder="dd-mm-yyyy">
                                 </div>
                             </div>
-                           
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="niti_name">Niti Name</label>
                                     <select class="form-control select2" id="niti_name" name="niti_name[]" multiple="multiple">
@@ -86,7 +96,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="sebak_name">Sebak Name</label>
                                     <select class="form-control select2" id="sebak_name" name="sebak_name[]" multiple="multiple">

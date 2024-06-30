@@ -51,16 +51,29 @@
                         Niti Information
                     </div>
                     <hr>
+                    
                     <form action="{{ route('saveNiti') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <input type="hidden" class="form-control" id="niti_id" name="niti_id" value="NT{{ rand(1000, 9999) }}" placeholder="">
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="event_name">Niti Name</label>
                                     <input type="text" class="form-control" id="niti_name" name="niti_name" placeholder="Enter Niti Name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="event_name">Niti Date</label>
+                                    <input type="date" class="form-control" id="niti_date" name="niti_date" placeholder="Enter Niti Date">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="event_name">Niti Time</label>
+                                    <input type="time" class="form-control" id="niti_time" name="niti_time" placeholder="Enter Niti Time">
                                 </div>
                             </div>
                         </div>
@@ -80,6 +93,7 @@
                             </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>

@@ -9,7 +9,15 @@ class Niti extends Model
 {
     use HasFactory;
     protected $table = 'niti';
-    protected $fillable = ['name'];
+
+    protected $fillable = [
+        'niti_id', 
+        'niti_name', 
+        'description', 
+        'niti_date', 
+        'niti_time'
+    ];
+    
     public function rituals()
     {
         return $this->belongsToMany(Ritual::class);

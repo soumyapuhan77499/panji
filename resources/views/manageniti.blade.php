@@ -58,6 +58,8 @@
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
                                                     <th class="border-bottom-0">Niti Name</th>
+                                                    <th class="border-bottom-0">Niti Date</th>
+                                                    <th class="border-bottom-0">Niti Time</th>
                                                     <th class="border-bottom-0">Description</th>
                                                     <th class="border-bottom-0">Action</th>
                                                 </tr>
@@ -67,6 +69,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $niti->niti_name }}</td> 
+                                                    <td>{{ $niti->niti_date }}</td> 
+                                                    <td>{{ $niti->niti_time }}</td> 
                                                     <td>{{ $niti->description }}</td> 
                                                     <td style = 'color:#B7070A;font-size: 15px'><a class ='cursor-pointer' href="{{url('admin/edit-niti/'.$niti->id)}}"><i class="fa fa-edit"></i></a> | <a class ='cursor-pointer' href="{{url('admin/delete-niti/'.$niti->niti_id)}}"><i class="fa fa-trash"></i></a></td>
                                                 </tr>

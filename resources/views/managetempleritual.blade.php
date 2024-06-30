@@ -57,6 +57,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
+                                                    <th class="border-bottom-0">Language</th>
                                                     <th class="border-bottom-0">Ritual Name</th>
                                                     <th class="border-bottom-0">Date</th>
                                                     <th class="border-bottom-0">Time</th>
@@ -70,6 +71,7 @@
                                                 @foreach ($manage_ritual as $ritual)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $ritual->language }}</td> 
                                                     <td>{{ $ritual->ritual_name }}</td> 
                                                     <td>{{ date('d-m-Y', strtotime($ritual->date)) }}</td>
                                                     <td>{{ $ritual->time }}</td>       

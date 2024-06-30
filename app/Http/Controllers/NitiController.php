@@ -15,22 +15,27 @@ class NitiController extends Controller
     public function addniti(){
         return view('addniti');
     }
-    public function saveNiti(Request $request){
+    public function saveNiti(Request $request)
+    {
         $request->validate([
             'niti_name' => 'required|string',
             'description' => 'required|string',
+            'niti_date' => 'required|date',
+            'niti_time' => 'required'
         ]);
+    
         $niti = new Niti();
         $niti->niti_id = $request->niti_id;
         $niti->niti_name = $request->niti_name;
         $niti->description = $request->description;
-
+        $niti->niti_date = $request->niti_date;
+        $niti->niti_time = $request->niti_time;
+    
         if ($niti->save()) {
             return redirect()->back()->with('success', 'Data saved successfully.');
         } else {
             return redirect()->back()->withErrors(['danger' => 'Failed to save data.']);
         }
-       
     }
     
     public function deletNiti($niti_id)
@@ -73,5 +78,7 @@ class NitiController extends Controller
                return redirect()->back()->with('error', 'Failed to update data.');
            }
        }
+
+   
       
 }
