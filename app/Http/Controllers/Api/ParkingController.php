@@ -31,9 +31,9 @@ class ParkingController extends Controller
             ->orderBy('created_at', 'desc')
             ->get(); // Get all records
 
-            foreach ($parkings as $parking) {
-                $parking->parking_photo_url = asset( $parking->parking_photo);
-            }
+        foreach ($parkings as $parking) {
+            $parking->parking_photo_url = asset($parking->parking_photo);
+        }
 
         // Get active YouTube URLs (array)
         $youtube_urls = Youtube::where('status', 'active')
@@ -46,16 +46,16 @@ class ParkingController extends Controller
             'notices' => $notices,
         ];
 
-        $arrayData = [
-            'parking' => $parking,
-            'youtube_urls' => $youtube_urls,
+        // Combine into final $data object
+        $data = (object) [
+            'current_niti' => $current_niti,
+            'notices' => $notices,
+            'parking' => $parkings->toArray(), // Convert parking collection to array
+            'youtube_urls' => $youtube_urls->toArray(), // Convert youtube_urls collection to array
         ];
 
-        // Combine into final $data object
-        $data = (object) array_merge((array) $objectData, $arrayData);
-
         // Check if any data is missing
-        if (is_null($current_niti) && is_null($notices) && empty($parking) && empty($youtube_urls)) {
+        if (is_null($current_niti) && is_null($notices) && empty($parkings) && empty($youtube_urls)) {
             return response()->json([
                 'status' => 404,
                 'message' => 'No data found',
