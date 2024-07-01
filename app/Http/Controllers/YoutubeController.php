@@ -15,7 +15,7 @@ class YoutubeController extends Controller
     {
         // Validate the request
         $request->validate([
-            'youtube_url' => 'required|url',
+            'youtube_url' => 'required',
         ]);
 
         // Create a new Youtube record
