@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Niti;
 
 class LoginRegisterController extends Controller
 {
@@ -157,7 +158,9 @@ class LoginRegisterController extends Controller
     {
         if(Auth::check())
         {
-            return view('livewire.index');
+            $manage_nitis = Niti::where('status', 'active')->get();
+
+            return view('dashboard',compact('manage_nitis'));
         }
         
         return redirect()->route('login')
