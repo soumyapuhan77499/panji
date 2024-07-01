@@ -55,7 +55,16 @@
                             <input type="hidden" class="form-control" id="niti_id" name="niti_id" value="{{ $niti->niti_id }}" placeholder="">
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="language">Language</label>
+                                    <select class="form-control" id="language" name="language">
+                                        <option value="odia" {{ $niti->language == 'odia' ? 'selected' : '' }}>Odia</option>
+                                        <option value="english" {{ $niti->language == 'english' ? 'selected' : '' }}>English</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="niti_name">Niti Name</label>
                                     <input type="text" class="form-control" id="niti_name" name="niti_name" value="{{ $niti->niti_name }}" placeholder="Enter Niti Name">

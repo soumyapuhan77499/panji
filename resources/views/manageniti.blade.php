@@ -57,6 +57,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
+                                                    <th class="border-bottom-0">Language</th>
                                                     <th class="border-bottom-0">Niti Type</th>
                                                     <th class="border-bottom-0">Niti Name</th>
                                                     <th class="border-bottom-0">Niti Date</th>
@@ -69,6 +70,7 @@
                                                 @foreach ($manage_niti as $niti)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $niti->language }}</td> 
                                                     <td>{{ $niti->niti_type }}</td> 
                                                     <td>{{ $niti->niti_name }}</td> 
                                                     <td>{{ $niti->niti_date }}</td> 
