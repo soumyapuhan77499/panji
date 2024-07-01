@@ -1,13 +1,16 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Auth\LoginRegisterController;
-use App\Http\Controllers\sebayatregisterController;
-use App\Http\Controllers\User\userController;
-use App\Http\Controllers\EventController;
 use App\Http\Controllers\NitiController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\SebakController;
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\ParkingController;
+use App\Http\Controllers\YoutubeController;
+use App\Http\Controllers\User\userController;
 use App\Http\Controllers\TempleRitualController;
+use App\Http\Controllers\sebayatregisterController;
+use App\Http\Controllers\Auth\LoginRegisterController;
 
 
 /*
@@ -37,8 +40,23 @@ Route::controller(NitiController::class)->group(function(){
     Route::get('admin/delete-niti/{niti_id}', 'deletNiti')->name('deletNiti');
     Route::get('admin/edit-niti/{id}','editNiti')->name('editNiti');
     Route::put('admin/update-niti/{id}','update')->name('updateNiti');
+});
+
+Route::controller(NoticeController::class)->group(function(){
+    Route::get('admin/notice','notice');
+    Route::post('admin/saveNotice', 'saveNotice')->name('saveNotice');
+});
+
+Route::controller(ParkingController::class)->group(function(){
+    Route::get('admin/parking','parking');
+    Route::post('admin/saveParking', 'saveParking')->name('saveParking');
 
 });
+Route::controller(YoutubeController::class)->group(function(){
+    Route::get('admin/youtube','youtube');
+    Route::post('admin/saveYoutubeUrl', 'saveYoutubeUrl')->name('saveYoutubeUrl');
+});
+
 // Sebak information route
 Route::controller(SebakController::class)->group(function(){
     Route::get('admin/manage-sebak','managesebak');
@@ -56,9 +74,8 @@ Route::controller(TempleRitualController::class)->group(function(){
     Route::get('admin/delete-ritual/{ritual_id}', 'deletRitual')->name('deletRitual');
     Route::get('admin/edit-ritual/{id}','editRitual')->name('editRitual');
     Route::put('admin/update-ritual/{id}','update')->name('updateRitual');
-
-
 });
+
 // admin routes
 Route::prefix('admin')->middleware(['auth', 'checkUserRole:admin'])->group(function () {
 Route::get('/manage-event', [EventController::class, 'manageevent']);

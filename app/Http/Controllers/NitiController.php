@@ -24,6 +24,7 @@ class NitiController extends Controller
         ]);
     
         $niti = new Niti();
+        $niti->language = $request->language;
         $niti->niti_id = $request->niti_id;
         $niti->niti_name = $request->niti_name;
         $niti->description = $request->description;
@@ -75,6 +76,7 @@ class NitiController extends Controller
         }
     
         // Update Niti data
+        $niti->language = $request->language;
         $niti->niti_name = $request->niti_name;
         $niti->description = $request->description;
         $niti->niti_date = $request->niti_date;

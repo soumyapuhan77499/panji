@@ -9,14 +9,14 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">ADD NITI</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">PARKING DETAILS</span>
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb d-flex justify-content-between align-items-center">
-                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-niti') }}"
-                        class="btn btn-warning text-dark">Manage Niti</a></li>
+                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-parking') }}"
+                        class="btn btn-warning text-dark">Manage Parking</a></li>
                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
-                <li class="breadcrumb-item active tx-15" aria-current="page">ADD NITI</li>
+                <li class="breadcrumb-item active tx-15" aria-current="page">ADD NOTICE</li>
             </ol>
         </div>
     </div>
@@ -48,17 +48,8 @@
         <div class="col-lg-12 col-md-">
             <div class="card custom-card">
                 <div class="card-body">
-                    <div class="main-content-label mg-b-5" style="font-size: 16px">
-                        Niti Information
-                    </div>
-                    <hr>
-
-                    <form action="{{ route('saveNiti') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('saveParking') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
-                            <input type="hidden" class="form-control" id="niti_id" name="niti_id"
-                                value="NT{{ rand(1000, 9999) }}" placeholder="">
-                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -71,49 +62,60 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="niti_name">Niti Name</label>
-                                    <input type="text" class="form-control" id="niti_name" name="niti_name"
-                                        placeholder="Enter Niti Name">
+                                    <label for="notice">Parking Name</label>
+                                    <input type="text" class="form-control" id="notice" name="notice"
+                                        placeholder="Enter parking name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="niti_date">Niti Date</label>
-                                    <input type="date" class="form-control" id="niti_date" name="niti_date"
-                                        placeholder="Enter Niti Date">
+                                    <label for="availability">Parking Availability</label>
+                                    <input type="text" class="form-control" id="availability" name="availability"
+                                        placeholder="Enter parking availability">
                                 </div>
                             </div>
                            
+
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="niti_time">Niti Time</label>
-                                    <input type="time" class="form-control" id="niti_time" name="niti_time"
-                                        placeholder="Enter Niti Time">
+                                    <label for="map_url">Map URL</label>
+                                    <input type="text" class="form-control" id="map_url" name="map_url"
+                                        placeholder="Enter URL...">
                                 </div>
                             </div>
-                            
-                            <div class="col-md-8">
-                                <div class="form-group" style="margin-top: 30px">
-                                    <label for="niti_type">Niti Type</label>
-                                    <div class="form-check form-check-inline" style="margin-left: 15px">
-                                        <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="special_niti" name="niti_type" value="special">
-                                        <label class="form-check-label" for="special_niti">Special Niti</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="daily_niti" name="niti_type" value="daily">
-                                        <label class="form-check-label" for="daily_niti">Daily Niti</label>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="vehicle_type">Vehicle Type</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="two_wheeler"
+                                                name="vehicle_type" value="two_wheeler">
+                                            <label class="form-check-label" for="two_wheeler">
+                                                Two Wheeler
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="four_wheeler"
+                                                name="vehicle_type" value="four_wheeler">
+                                            <label class="form-check-label" for="four_wheeler">
+                                                Four Wheeler
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="parking_photo">Photo</label>
+                                    <input type="file" class="form-control" id="parking_photo" name="parking_photo">
+                                </div>
                             </div>
-                            
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                                    <label for="parking_address">Parking Address</label>
+                                    <textarea class="form-control" id="parking_address" name="parking_address"></textarea>
                                 </div>
                             </div>
                         </div>

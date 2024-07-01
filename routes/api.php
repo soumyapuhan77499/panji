@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\NitiController;
 use App\Http\Controllers\Api\RitualController;
 use App\Http\Controllers\Api\SebakController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\ParkingController;
+
 
 
 
@@ -32,5 +34,9 @@ Route::controller(SebakController::class)->group(function() {
 
 Route::controller(EventController::class)->group(function() {
     Route::get('/manage-event', 'manageevent')->name('manageEvent');
+});
+
+Route::controller(ParkingController::class)->group(function() {
+    Route::get('/parking-app', 'parkingApp')->name('parkingApp');
 });
 

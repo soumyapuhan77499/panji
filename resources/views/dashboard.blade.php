@@ -70,7 +70,7 @@
         <div class="col-12 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Product Summary</h4>
+                    <h4 class="card-title">Niti Summary</h4>
                 </div>
                 <div class="card-body pt-0 example1-table">
                     <div class="table-responsive">
