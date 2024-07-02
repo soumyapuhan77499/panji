@@ -22,7 +22,7 @@ class ParkingController extends Controller
     {
         // Validate the request
         $request->validate([
-            'notice' => 'required|string|max:255',
+            'parking' => 'required|string|max:255',
             'availability' => 'required|string|max:255',
             'map_url' => 'nullable|url',
             'parking_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -49,7 +49,7 @@ class ParkingController extends Controller
         // Create a new Parking record
         $parking = new Parking();
         $parking->language = $request->language;
-        $parking->parking_name = $request->notice;
+        $parking->parking_name = $request->parking;
         $parking->parking_availability = $request->availability;
         $parking->map_url = $request->map_url;
         $parking->parking_photo = $photoPath;
@@ -93,12 +93,12 @@ class ParkingController extends Controller
      
          // Create a new Parking record
          $parking->language = $request->language;
-         $parking->parking_name = $request->notice;
-         $parking->parking_availability = $request->availability;
+         $parking->parking_name = $request->parking_name;
+         $parking->parking_availability = $request->parking_availability;
          $parking->map_url = $request->map_url;
-         $parking->parking_photo = $photoPath;
-         $parking->parking_address = $request->parking_address;
          $parking->vehicle_type = $request->vehicle_type;
+         $parking->parking_address = $request->parking_address;
+ 
          $parking->save();
 
         return redirect()->route('manageparking')->with('success', 'Parking updated successfully!');

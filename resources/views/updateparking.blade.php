@@ -65,13 +65,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="parking_name">Parking Name</label>
-                                    <input type="text" class="form-control" id="parking_name" name="parking_name" placeholder="Enter parking name" value="{{ $parking->parking_name }}" required>
+                                    <input type="text" class="form-control" id="parking_name" name="parking_name" placeholder="Enter parking name" value="{{ $parking->parking_name }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="parking_availability">Parking Availability</label>
-                                    <input type="text" class="form-control" id="parking_availability" name="parking_availability" placeholder="Enter parking availability" value="{{ $parking->parking_availability }}" required>
+                                    <input type="text" class="form-control" id="parking_availability" name="parking_availability" placeholder="Enter parking availability" value="{{ $parking->parking_availability }}">
                                 </div>
                             </div>
                         </div>

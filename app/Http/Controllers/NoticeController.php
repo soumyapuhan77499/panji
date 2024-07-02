@@ -29,6 +29,7 @@ class NoticeController extends Controller
         // Create a new Notice
         $notice = new Notice();
         $notice->notice = $request->notice;
+        $notice->language = $request->language;
         $notice->save();
 
         // Redirect back or to a success page

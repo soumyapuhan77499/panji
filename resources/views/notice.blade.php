@@ -13,7 +13,8 @@
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb d-flex justify-content-between align-items-center">
-                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-notice') }}" class="btn btn-warning text-dark">Manage Notice</a></li>
+                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-notice') }}"
+                        class="btn btn-warning text-dark">Manage Notice</a></li>
                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
                 <li class="breadcrumb-item active tx-15" aria-current="page">ADD NOTICE</li>
             </ol>
@@ -31,7 +32,7 @@
         </div>
     @endif
 
-    @if(session()->has('success'))
+    @if (session()->has('success'))
         <div class="alert alert-success" id="Message">
             {{ session()->get('success') }}
         </div>
@@ -47,22 +48,31 @@
         <div class="col-lg-12 col-md-">
             <div class="card custom-card">
                 <div class="card-body">
-                    
-                
+
+
                     <form action="{{ route('saveNotice') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="niti_name">Message</label>
-                                    <input type="text" class="form-control" id="notice" name="notice" placeholder="Write your message here .....">
+                                    <label for="language">Language</label>
+                                    <select class="form-control" id="language" name="language">
+                                        <option value="odia">Odia</option>
+                                        <option value="english">English</option>
+                                    </select>
                                 </div>
                             </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group" style="padding-top: 27px">
-                                    <input type="submit" class="btn btn-primary" value="Submit">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="niti_name">Message</label>
+                                    <input type="text" class="form-control" id="notice" name="notice"
+                                        placeholder="Write your message here .....">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" style="padding-top: 27px">
+                                <input type="submit" class="btn btn-primary" value="Submit">
                             </div>
                         </div>
                     </form>
@@ -79,7 +89,7 @@
     <!-- Form-layouts js -->
     <script src="{{ asset('assets/js/form-layouts.js') }}"></script>
     <script>
-        setTimeout(function(){
+        setTimeout(function() {
             document.getElementById('Message').style.display = 'none';
         }, 3000);
     </script>

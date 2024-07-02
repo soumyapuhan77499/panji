@@ -63,7 +63,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="notice">Parking Name</label>
-                                    <input type="text" class="form-control" id="notice" name="notice"
+                                    <input type="text" class="form-control" id="parking" name="parking"
                                         placeholder="Enter parking name">
                                 </div>
                             </div>
