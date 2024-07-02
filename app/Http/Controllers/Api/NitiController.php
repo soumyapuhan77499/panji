@@ -67,7 +67,8 @@ public function currentstatus()
         return response()->json([
             'status' => 200,
             'message' => 'Ritual data retrieved successfully',
-            'data' => $data], 200);
+            'data' => $data
+        ], 200);
 }
     public function start(Request $request)
     {

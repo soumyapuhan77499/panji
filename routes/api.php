@@ -31,7 +31,6 @@ Route::controller(NitiController::class)->group(function() {
 Route::controller(DarshanController::class)->group(function() {
     Route::get('/daily_darshan', 'manageDarshan')->name('manageDarshan');
     Route::get('/current_status_darshan',  'currentDarshan')->name('currentDarshan');
-
 });
 
 Route::controller(RitualController::class)->group(function() {
