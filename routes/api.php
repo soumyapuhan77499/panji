@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\RitualController;
 use App\Http\Controllers\Api\SebakController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\ParkingController;
+use App\Http\Controllers\Api\DarshanController;
+
 
 
 
@@ -24,6 +26,12 @@ Route::controller(NitiController::class)->group(function() {
     Route::post('/niti-resume', 'resume')->name('nitiResume');
     Route::get('/daily_ritual_timing',  'dailyritualtimg')->name('dailyritualtimg');
     Route::get('/current_status_ritual',  'currentstatus')->name('currentstatus');
+});
+
+Route::controller(DarshanController::class)->group(function() {
+    Route::get('/daily_darshan', 'manageDarshan')->name('manageDarshan');
+    Route::get('/current_status_darshan',  'currentDarshan')->name('currentDarshan');
+
 });
 
 Route::controller(RitualController::class)->group(function() {
