@@ -10,6 +10,63 @@ use Carbon\Carbon;
 
 class NitiController extends Controller
 {
+    public function dailyritualtimg()
+{
+    $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
+
+    $manage_niti = Niti::where('status', 'active')
+    ->whereDate('niti_date', $today) // Filter by today's date
+    ->get();
+
+    if ($manage_niti->isEmpty()) {
+        return response()->json([
+            'status' => 404,
+            'message' => 'No data found',
+            'data' => []
+        ], 404);
+    }
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Data retrieved successfully',
+        'data' => $manage_niti
+    ], 200);
+}
+
+public function currentstatus()
+{
+    // Get the current time
+    $currentTime = Carbon::now()->format('H:i');
+
+    // Retrieve data from the database where status is active and start_time matches the current time
+    $current_niti = Niti::where('status', 'active')
+        ->whereTime('niti_time', $currentTime) // Filter by current time
+        ->get();
+
+    $upcoming_niti = Niti::where('status', 'active')
+        ->where('niti_time', '>', $currentTime)
+        ->orderBy('niti_time', 'asc')
+        ->first();
+
+        $data = [
+            'current_niti' => $current_niti,
+            'upcoming_niti' => $upcoming_niti
+        ];
+    
+        if (is_null($current_niti) && is_null($upcoming_niti)) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No current or upcoming niti found',
+                'data' => $data
+            ], 404);
+        }
+    
+        return response()->json([
+            'status' => 200,
+            'message' => 'Niti data retrieved successfully',
+            'data' => $data
+], 200);
+}
     public function start(Request $request)
     {
         $niti = Niti::find($request->niti_id);
@@ -172,4 +229,5 @@ public function manageniti()
         'data' => $manage_niti
     ], 200);
 }
+
 }

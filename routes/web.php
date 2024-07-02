@@ -45,13 +45,22 @@ Route::controller(NitiController::class)->group(function(){
 Route::controller(NoticeController::class)->group(function(){
     Route::get('admin/notice','notice');
     Route::post('admin/saveNotice', 'saveNotice')->name('saveNotice');
+    Route::get('admin/manage-notice', 'manageNotice')->name('managenotice');
+    Route::get('admin/edit-notice/{id}','editNotice')->name('edit.notice');
+Route::post('admin/update-notice/{id}','updateNotice')->name('update.notice');
+Route::get('admin/delete-notice/{id}',  'deleteNotice')->name('delete.notice');
 });
 
 Route::controller(ParkingController::class)->group(function(){
     Route::get('admin/parking','parking');
     Route::post('admin/saveParking', 'saveParking')->name('saveParking');
+    Route::get('admin/manage-parking', 'manageParking')->name('manageparking');
+    Route::get('admin/edit-parking/{id}', 'editParking')->name('edit.parking');
+Route::post('admin/update-parking/{id}', 'updateParking')->name('update.parking');
+Route::get('admin/delete-parking/{id}',  'deleteParking')->name('delete.parking');
 
 });
+
 Route::controller(YoutubeController::class)->group(function(){
     Route::get('admin/youtube','youtube');
     Route::post('admin/saveYoutubeUrl', 'saveYoutubeUrl')->name('saveYoutubeUrl');

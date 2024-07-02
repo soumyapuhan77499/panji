@@ -22,6 +22,8 @@ Route::controller(NitiController::class)->group(function() {
     Route::post('/niti-end', 'end')->name('nitiEnd');
     Route::post('/niti-pause', 'pause')->name('nitiPause');
     Route::post('/niti-resume', 'resume')->name('nitiResume');
+    Route::get('/daily_ritual_timing',  'dailyritualtimg')->name('dailyritualtimg');
+    Route::get('/current_status_ritual',  'currentstatus')->name('currentstatus');
 });
 
 Route::controller(RitualController::class)->group(function() {

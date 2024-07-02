@@ -10,6 +10,13 @@ class ParkingController extends Controller
     public function parking(){
         return view('parking');
     }
+    public function manageParking(){
+
+        $parkings = Parking::where('status', 'active')->get();
+
+        return view('manageparking', compact('parkings'));
+
+    }
 
     public function saveParking(Request $request)
     {
