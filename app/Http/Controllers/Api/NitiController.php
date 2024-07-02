@@ -37,14 +37,17 @@ public function currentstatus()
 {
     // Get the current time
     $currentTime = Carbon::now()->format('H:i');
-
+    $today = Carbon::today()->toDateString();
+    // dd($currentTime);
     // Retrieve data from the database where status is active and start_time matches the current time
     $current_niti = Niti::where('status', 'active')
-        ->whereTime('niti_time', $currentTime) // Filter by current time
+        ->whereTime('niti_time','<',$currentTime)
+        ->whereDate('niti_date', $today) // Filter by current time
         ->get();
 
     $upcoming_niti = Niti::where('status', 'active')
         ->where('niti_time', '>', $currentTime)
+        ->whereDate('niti_date', $today)
         ->orderBy('niti_time', 'asc')
         ->first();
 
@@ -56,16 +59,15 @@ public function currentstatus()
         if (is_null($current_niti) && is_null($upcoming_niti)) {
             return response()->json([
                 'status' => 404,
-                'message' => 'No current or upcoming niti found',
+                'message' => 'No current or upcoming Ritual found',
                 'data' => $data
             ], 404);
         }
     
         return response()->json([
             'status' => 200,
-            'message' => 'Niti data retrieved successfully',
-            'data' => $data
-], 200);
+            'message' => 'Ritual data retrieved successfully',
+            'data' => $data], 200);
 }
     public function start(Request $request)
     {
