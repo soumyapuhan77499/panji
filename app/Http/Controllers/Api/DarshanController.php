@@ -46,7 +46,14 @@ public function currentDarshan(Request $request)
             ->whereTime('darshan_stop_time', '>=', $currentTime)
             ->first(); // Using first() to get a single record
             
-            if ($current_darshan->isEmpty()) {
+            if ($current_darshan) {
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Data retrieved successfully',
+                    'data' => $current_darshan
+                ], 200);
+              
+            }else{
                 return response()->json([
                     'status' => 404,
                     'message' => 'No data found',
@@ -54,11 +61,7 @@ public function currentDarshan(Request $request)
                 ], 404);
             }
         
-            return response()->json([
-                'status' => 200,
-                'message' => 'Data retrieved successfully',
-                'data' => $current_darshan
-            ], 200);
+          
         
     }
 
