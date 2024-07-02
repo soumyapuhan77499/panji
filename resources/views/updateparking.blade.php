@@ -9,12 +9,12 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">PARKING DETAILS</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">UPDATE PARKING DETAILS</span>
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb d-flex justify-content-between align-items-center">
                 <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-parking') }}"
-                        class="btn btn-warning text-dark">Manage Parking</a></li>
+                        class="btn btn-warning text-dark">Add Parking</a></li>
                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
                 <li class="breadcrumb-item active tx-15" aria-current="page">Parking</li>
             </ol>
@@ -48,62 +48,53 @@
         <div class="col-lg-12 col-md-">
             <div class="card custom-card">
                 <div class="card-body">
-                    <form action="{{ route('saveParking') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('updateParking', $parking->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT') <!-- Use PUT method for update -->
+
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="language">Language</label>
                                     <select class="form-control" id="language" name="language">
-                                        <option value="odia">Odia</option>
-                                        <option value="english">English</option>
+                                        <option value="odia" @if($parking->language == 'odia') selected @endif>Odia</option>
+                                        <option value="english" @if($parking->language == 'english') selected @endif>English</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="notice">Parking Name</label>
-                                    <input type="text" class="form-control" id="notice" name="notice"
-                                        placeholder="Enter parking name">
+                                    <label for="parking_name">Parking Name</label>
+                                    <input type="text" class="form-control" id="parking_name" name="parking_name" placeholder="Enter parking name" value="{{ $parking->parking_name }}" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="availability">Parking Availability</label>
-                                    <input type="text" class="form-control" id="availability" name="availability"
-                                        placeholder="Enter parking availability">
+                                    <label for="parking_availability">Parking Availability</label>
+                                    <input type="text" class="form-control" id="parking_availability" name="parking_availability" placeholder="Enter parking availability" value="{{ $parking->parking_availability }}" required>
                                 </div>
                             </div>
-                           
-
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="map_url">Map URL</label>
-                                    <input type="text" class="form-control" id="map_url" name="map_url"
-                                        placeholder="Enter URL...">
+                                    <input type="text" class="form-control" id="map_url" name="map_url" placeholder="Enter URL..." value="{{ $parking->map_url }}">
                                 </div>
                             </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="vehicle_type">Vehicle Type</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="two_wheeler"
-                                                name="vehicle_type" value="two_wheeler">
-                                            <label class="form-check-label" for="two_wheeler">
-                                                Two Wheeler
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="four_wheeler"
-                                                name="vehicle_type" value="four_wheeler">
-                                            <label class="form-check-label" for="four_wheeler">
-                                                Four Wheeler
-                                            </label>
-                                        </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Vehicle Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="two_wheeler" name="vehicle_type" value="Two Wheeler" @if($parking->vehicle_type == 'Two Wheeler') checked @endif>
+                                        <label class="form-check-label" for="two_wheeler">Two Wheeler</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="four_wheeler" name="vehicle_type" value="Four Wheeler" @if($parking->vehicle_type == 'Four Wheeler') checked @endif>
+                                        <label class="form-check-label" for="four_wheeler">Four Wheeler</label>
                                     </div>
                                 </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="parking_photo">Photo</label>
@@ -115,15 +106,14 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="parking_address">Parking Address</label>
-                                    <textarea class="form-control" id="parking_address" name="parking_address"></textarea>
+                                    <textarea class="form-control" id="parking_address" name="parking_address" placeholder="Enter parking address">{{ $parking->parking_address }}</textarea>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-group" style="padding-top: 27px">
-                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                <div class="form-group" style="padding-top: 27px;">
+                                    <input type="submit" class="btn btn-primary" value="Update">
                                 </div>
                             </div>
                         </div>

@@ -56,8 +56,8 @@ Route::controller(ParkingController::class)->group(function(){
     Route::post('admin/saveParking', 'saveParking')->name('saveParking');
     Route::get('admin/manage-parking', 'manageParking')->name('manageparking');
     Route::get('admin/edit-parking/{id}', 'editParking')->name('edit.parking');
-Route::post('admin/update-parking/{id}', 'updateParking')->name('update.parking');
-Route::get('admin/delete-parking/{id}',  'deleteParking')->name('delete.parking');
+    Route::put('admin/update-parking/{id}',  'updateParking')->name('updateParking');
+    Route::get('admin/delete-parking/{id}',  'deleteParking')->name('delete.parking');
 
 });
 
