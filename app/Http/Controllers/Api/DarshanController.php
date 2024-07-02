@@ -20,14 +20,14 @@ class DarshanController extends Controller
     if ($darshan->isEmpty()) {
         return response()->json([
             'status' => 404,
-            'message' => 'No data found',
+            'message' => 'Darshan is not available',
             'data' => []
         ], 404);
     }
 
     return response()->json([
         'status' => 200,
-        'message' => 'Data retrieved successfully',
+        'message' => 'Darshan is available now',
         'data' => $darshan
     ], 200);
 
@@ -49,14 +49,14 @@ public function currentDarshan(Request $request)
             if ($current_darshan) {
                 return response()->json([
                     'status' => 200,
-                    'message' => 'Data retrieved successfully',
+                    'message' => 'Darshan is not available',
                     'data' => $current_darshan
                 ], 200);
               
             }else{
                 return response()->json([
                     'status' => 404,
-                    'message' => 'No data found',
+                    'message' => 'Darshan is available now',
                     'data' => []
                 ], 404);
             }
