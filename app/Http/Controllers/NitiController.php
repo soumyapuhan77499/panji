@@ -85,7 +85,7 @@ class NitiController extends Controller
     
         // Save changes
         if ($niti->save()) {
-            return redirect()->route('manageparking')->with('success', 'Data updated successfully.');
+            return redirect()->route('manageniti')->with('success', 'Data updated successfully.');
         } else {
             return redirect()->back()->with('error', 'Failed to update data.');
         }

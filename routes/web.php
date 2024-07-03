@@ -34,7 +34,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
 });
 // Niti information route
 Route::controller(NitiController::class)->group(function(){
-    Route::get('admin/manage-niti','manageniti');
+    Route::get('admin/manage-niti','manageniti')->name('manageniti');
     Route::get('admin/add-niti','addniti');
     Route::post('admin/saveNiti', 'saveNiti')->name('saveNiti');
     Route::get('admin/delete-niti/{niti_id}', 'deletNiti')->name('deletNiti');
