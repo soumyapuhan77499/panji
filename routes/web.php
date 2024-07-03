@@ -64,6 +64,8 @@ Route::controller(ParkingController::class)->group(function(){
 Route::controller(YoutubeController::class)->group(function(){
     Route::get('admin/youtube','youtube');
     Route::post('admin/saveYoutubeUrl', 'saveYoutubeUrl')->name('saveYoutubeUrl');
+    Route::get('admin/manage-youtube', 'manageNotice')->name('managenotice');
+
 });
 
 // Sebak information route
