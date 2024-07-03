@@ -56,43 +56,97 @@ class NitiController extends Controller
     ],200);
     }
 
-public function currentstatus()
-{
-    // Get the current time
-    $currentTime = Carbon::now()->format('H:i');
-    $today = Carbon::today()->toDateString();
-    // dd($currentTime);
-    // Retrieve data from the database where status is active and start_time matches the current time
-    $current_niti = Niti::where('status', 'active')
-        ->whereTime('niti_time','<',$currentTime)
-        ->whereDate('niti_date', $today) // Filter by current time
-        ->get();
-
-    $upcoming_niti = Niti::where('status', 'active')
-        ->where('niti_time', '>', $currentTime)
-        ->whereDate('niti_date', $today)
-        ->orderBy('niti_time', 'asc')
-        ->first();
-
+    public function currentstatus()
+    {
+        // Get the current time
+        $currentTime = Carbon::now()->format('H:i');
+        $today = Carbon::today()->toDateString();
+       
+        $current_niti = Niti::where('status', 'active')
+            ->whereTime('niti_time', '<', $currentTime)
+            ->whereDate('niti_date', $today) // Filter by current time
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'language' => $item->language,
+                    'niti_id' => $item->niti_id,
+                    'niti_type' => $item->niti_type,
+                    'niti_details' => $item->niti_name . ' at ' . $item->niti_time,
+                    'niti_date' => $item->niti_date,
+                    'start_time' => $item->start_time,
+                    'pause_time' => $item->pause_time,
+                    'running_time' => $item->running_time,
+                    'resume_time' => $item->resume_time,
+                    'end_time' => $item->end_time,
+                    'duration' => $item->duration,
+                    'description' => $item->description,
+                    'niti_status' => $item->niti_status,
+                    'status' => $item->status,
+                    'created_at' => $item->created_at,
+                    'updated_at' => $item->updated_at,
+                    'created_by' => $item->created_by,
+                    'updated_by' => $item->updated_by
+                ];
+            });
+    
+        $upcoming_niti = Niti::where('status', 'active')
+            ->where('niti_time', '>', $currentTime)
+            ->whereDate('niti_date', $today)
+            ->orderBy('niti_time', 'asc')
+            ->first();
+    
+        if ($upcoming_niti) {
+            $upcoming_niti = [
+                'id' => $upcoming_niti->id,
+                'language' => $upcoming_niti->language,
+                'niti_id' => $upcoming_niti->niti_id,
+                'niti_type' => $upcoming_niti->niti_type,
+                'niti_details' => $upcoming_niti->niti_name . ' at ' . $upcoming_niti->niti_time,
+                'niti_date' => $upcoming_niti->niti_date,
+                'start_time' => $upcoming_niti->start_time,
+                'pause_time' => $upcoming_niti->pause_time,
+                'running_time' => $upcoming_niti->running_time,
+                'resume_time' => $upcoming_niti->resume_time,
+                'end_time' => $upcoming_niti->end_time,
+                'duration' => $upcoming_niti->duration,
+                'description' => $upcoming_niti->description,
+                'niti_status' => $upcoming_niti->niti_status,
+                'status' => $upcoming_niti->status,
+                'created_at' => $upcoming_niti->created_at,
+                'updated_at' => $upcoming_niti->updated_at,
+                'created_by' => $upcoming_niti->created_by,
+                'updated_by' => $upcoming_niti->updated_by
+            ];
+        }
+    
         $data = [
             'current_niti' => $current_niti,
             'upcoming_niti' => $upcoming_niti
         ];
     
-        if (is_null($current_niti) && is_null($upcoming_niti)) {
+        if ($current_niti->isEmpty()) {
             return response()->json([
                 'status' => 404,
-                'message' => ' No Ritual Available Now',
+                'message' => 'No current Ritual found',
+                'data' => $data
+            ], 404);
+        }
+    
+        if (is_null($upcoming_niti)) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No upcoming Ritual found',
                 'data' => $data
             ], 404);
         }
     
         return response()->json([
             'status' => 200,
-            'message' => 'Ritual Available Now',
+            'message' => 'Ritual data retrieved successfully',
             'data' => $data
-        ], 200);
-}
+    ],200);
+    }
     public function start(Request $request)
     {
         $niti = Niti::find($request->niti_id);
