@@ -44,14 +44,14 @@ class NitiController extends Controller
         if ($manage_niti->isEmpty()) {
             return response()->json([
                 'status' => 404,
-                'message' => 'No data found',
+                'message' => 'No Rituals Available Now',
                 'data' => []
             ], 404);
         }
     
         return response()->json([
             'status' => 200,
-            'message' => 'Data retrieved successfully',
+            'message' => 'Rituals Available Now',
             'data' => $manage_niti
     ],200);
     }
@@ -128,13 +128,13 @@ class NitiController extends Controller
         if (is_null($current_niti) && is_null($upcoming_niti)) {
             return response()->json([
                 'status' => 404,
-                'message' => 'No current or upcoming Ritual found',
+                'message' => 'No Rituals Available Now',
                 'data' => $data
             ],404);
 }
         return response()->json([
             'status' => 200,
-            'message' => 'Ritual data retrieved successfully',
+            'message' => 'Rituals Available Now',
             'data' => $data
     ],200);
     }
