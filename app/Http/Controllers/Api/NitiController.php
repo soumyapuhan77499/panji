@@ -53,7 +53,7 @@ class NitiController extends Controller
             'status' => 200,
             'message' => 'Data retrieved successfully',
             'data' => $manage_niti
-        ], 200);
+    ],200);
     }
 
 public function currentstatus()
