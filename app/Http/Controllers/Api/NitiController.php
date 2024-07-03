@@ -11,27 +11,50 @@ use Carbon\Carbon;
 class NitiController extends Controller
 {
     public function dailyritualtimg()
-{
-    $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
-
-    $manage_niti = Niti::where('status', 'active')
-    ->whereDate('niti_date', $today) // Filter by today's date
-    ->get();
-
-    if ($manage_niti->isEmpty()) {
+    {
+        $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
+    
+        $manage_niti = Niti::where('status', 'active')
+            ->whereDate('niti_date', $today) // Filter by today's date
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'language' => $item->language,
+                    'niti_id' => $item->niti_id,
+                    'niti_type' => $item->niti_type,
+                    'niti_details' => $item->niti_name . ' at ' . $item->niti_time,
+                    'niti_date' => $item->niti_date,
+                    'start_time' => $item->start_time,
+                    'pause_time' => $item->pause_time,
+                    'running_time' => $item->running_time,
+                    'resume_time' => $item->resume_time,
+                    'end_time' => $item->end_time,
+                    'duration' => $item->duration,
+                    'description' => $item->description,
+                    'niti_status' => $item->niti_status,
+                    'status' => $item->status,
+                    'created_at' => $item->created_at,
+                    'updated_at' => $item->updated_at,
+                    'created_by' => $item->created_by,
+                    'updated_by' => $item->updated_by
+                ];
+            });
+    
+        if ($manage_niti->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No data found',
+                'data' => []
+            ], 404);
+        }
+    
         return response()->json([
-            'status' => 404,
-            'message' => ' No Ritual Available Now',
-            'data' => []
-        ], 404);
+            'status' => 200,
+            'message' => 'Data retrieved successfully',
+            'data' => $manage_niti
+        ], 200);
     }
-
-    return response()->json([
-        'status' => 200,
-        'message' => 'Ritual Available Now',
-        'data' => $manage_niti
-    ], 200);
-}
 
 public function currentstatus()
 {
