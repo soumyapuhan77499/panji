@@ -116,7 +116,7 @@ class NitiController extends Controller
             'updated_at' => $upcoming_niti->updated_at,
             'created_by' => $upcoming_niti->created_by,
             'updated_by' => $upcoming_niti->updated_by
-        ] : 'No upcoming niti is available';
+        ] : 'No upcoming rituals is available';
     
         $data = [
             'current_niti' => $current_niti,
