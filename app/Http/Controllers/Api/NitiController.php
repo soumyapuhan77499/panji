@@ -96,42 +96,34 @@ class NitiController extends Controller
             ->orderBy('niti_time', 'asc')
             ->first();
     
-        if ($upcoming_niti) {
-            $upcoming_niti = [
-                'id' => $upcoming_niti->id,
-                'language' => $upcoming_niti->language,
-                'niti_id' => $upcoming_niti->niti_id,
-                'niti_type' => $upcoming_niti->niti_type,
-                'niti_details' => $upcoming_niti->niti_name . ' at ' . $upcoming_niti->niti_time,
-                'niti_date' => $upcoming_niti->niti_date,
-                'start_time' => $upcoming_niti->start_time,
-                'pause_time' => $upcoming_niti->pause_time,
-                'running_time' => $upcoming_niti->running_time,
-                'resume_time' => $upcoming_niti->resume_time,
-                'end_time' => $upcoming_niti->end_time,
-                'duration' => $upcoming_niti->duration,
-                'description' => $upcoming_niti->description,
-                'niti_status' => $upcoming_niti->niti_status,
-                'status' => $upcoming_niti->status,
-                'created_at' => $upcoming_niti->created_at,
-                'updated_at' => $upcoming_niti->updated_at,
-                'created_by' => $upcoming_niti->created_by,
-                'updated_by' => $upcoming_niti->updated_by
-            ];
-        }
+        $upcoming_niti_data = $upcoming_niti ? [
+            'id' => $upcoming_niti->id,
+            'language' => $upcoming_niti->language,
+            'niti_id' => $upcoming_niti->niti_id,
+            'niti_type' => $upcoming_niti->niti_type,
+            'niti_details' => $upcoming_niti->niti_name . ' at ' . $upcoming_niti->niti_time,
+            'niti_date' => $upcoming_niti->niti_date,
+            'start_time' => $upcoming_niti->start_time,
+            'pause_time' => $upcoming_niti->pause_time,
+            'running_time' => $upcoming_niti->running_time,
+            'resume_time' => $upcoming_niti->resume_time,
+            'end_time' => $upcoming_niti->end_time,
+            'duration' => $upcoming_niti->duration,
+            'description' => $upcoming_niti->description,
+            'niti_status' => $upcoming_niti->niti_status,
+            'status' => $upcoming_niti->status,
+            'created_at' => $upcoming_niti->created_at,
+            'updated_at' => $upcoming_niti->updated_at,
+            'created_by' => $upcoming_niti->created_by,
+            'updated_by' => $upcoming_niti->updated_by
+        ] : null;
     
         $data = [
             'current_niti' => $current_niti,
-            'upcoming_niti' => $upcoming_niti
+            'upcoming_niti' => $upcoming_niti_data,
+            'upcoming_niti_message' => $upcoming_niti ? 'Upcoming niti available' : 'No upcoming niti is available'
         ];
     
-        if (is_null($current_niti) && is_null($upcoming_niti)) {
-            return response()->json([
-                'status' => 404,
-                'message' => 'No Rituals Available Now',
-                'data' => $data
-            ],404);
-}
         return response()->json([
             'status' => 200,
             'message' => 'Rituals Available Now',

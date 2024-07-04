@@ -17,13 +17,13 @@
                 <!-- breadcrumb -->
                 <div class="breadcrumb-header justify-content-between">
                     <div class="left-content">
-                      <span class="main-content-title mg-b-0 mg-b-lg-1">Manage Notice</span>
+                      <span class="main-content-title mg-b-0 mg-b-lg-1">Manage Youtube</span>
                     </div>
                     <div class="justify-content-center mt-2">
                         <ol class="breadcrumb d-flex justify-content-between align-items-center">
-                            <a href="{{url('admin/notice')}}" class="breadcrumb-item tx-15 btn btn-warning">Add Notice</a>
+                            <a href="{{url('admin/youtube')}}" class="breadcrumb-item tx-15 btn btn-warning">Add Youtube</a>
                             <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Manage Niti</li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage URL</li>
                         </ol>
                     </div>
                 </div>
@@ -51,18 +51,18 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
-                                                    <th class="border-bottom-0">Notice</th>
+                                                    <th class="border-bottom-0">You Tube URL</th>
                                                     <th class="border-bottom-0">Status</th>                                                    
                                                     <th class="border-bottom-0">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($notices as $notice)
+                                                @foreach ($youtubes as $youtube)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $notice->notice }}</td> 
-                                                    <td>{{ $notice->status }}</td> 
-                                                    <td style = 'color:#B7070A;font-size: 15px'><a class ='cursor-pointer' href="{{url('admin/edit-notice/'.$notice->id)}}"><i class="fa fa-edit"></i></a> | <a class ='cursor-pointer' href="{{url('admin/delete-notice/'.$notice->id)}}"><i class="fa fa-trash"></i></a></td>
+                                                    <td>{{ $youtube->youtube_url }}</td> 
+                                                    <td>{{ $youtube->status }}</td> 
+                                                    <td style = 'color:#B7070A;font-size: 15px'><a class ='cursor-pointer' href="{{url('admin/edit-youtube/'.$youtube->id)}}"><i class="fa fa-edit"></i></a> | <a class ='cursor-pointer' href="{{url('admin/delete-youtube/'.$youtube->id)}}"><i class="fa fa-trash"></i></a></td>
                                                 </tr>
                                                 @endforeach
                                                 

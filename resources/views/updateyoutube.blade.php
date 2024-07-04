@@ -9,7 +9,7 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">ADD YOU TUBE URL</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">UPDATE YOU TUBE URL</span>
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb d-flex justify-content-between align-items-center">
@@ -49,22 +49,13 @@
                 <div class="card-body">
                     
                 
-                    <form action="{{ route('saveYoutubeUrl') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('admin/update-youtube/'.$youtube->id) }}" method="POST">
                         @csrf
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="niti_name">You Tube URL</label>
-                                    <input type="text" class="form-control" id="youtube_url" name="youtube_url" placeholder="Enter Youtube URL">
-                                </div>
-                            </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group" style="padding-top: 27px">
-                                    <input type="submit" class="btn btn-primary" value="Submit">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="youtube_url">YouTube URL:</label>
+                            <input type="url" class="form-control" id="youtube_url" name="youtube_url" value="{{ $youtube->youtube_url }}" required>
                         </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>
