@@ -7,15 +7,16 @@ use App\Http\Controllers\Api\RitualController;
 use App\Http\Controllers\Api\SebakController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\ParkingController;
+use App\Http\Controllers\Api\NitiloginController;
 use App\Http\Controllers\Api\DarshanController;
-
-
-
-
-
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::controller(NitiloginController::class)->group(function() {
+    Route::post('/user-send-otp',  'sendOtp');
+    Route::post('/user-verify-otp', 'verifyOtp');
 });
 
 Route::controller(NitiController::class)->group(function() {
