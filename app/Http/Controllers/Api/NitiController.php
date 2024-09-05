@@ -279,10 +279,10 @@ public function manageniti()
 
     if ($manage_niti->isEmpty()) {
         return response()->json([
-            'status' => 404,
+            'status' => 200,
             'message' => 'No data found',
             'data' => []
-        ], 404);
+        ], 200);
     }
 
     return response()->json([
