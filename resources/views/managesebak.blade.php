@@ -57,8 +57,11 @@
                                             <thead>
                                                 <tr>
                                                     <th class="border-bottom-0">SlNo</th>
+                                                    <th class="border-bottom-0">Profile Photo</th>
                                                     <th class="border-bottom-0">Sebak Name</th>
-                                                    <th class="border-bottom-0">Description</th>
+                                                    <th class="border-bottom-0">Mobile No</th>
+                                                    <th class="border-bottom-0">Email</th>
+                                                    <th class="border-bottom-0">Status</th>
                                                     <th class="border-bottom-0">Action</th>
                                                 </tr>
                                             </thead>
@@ -66,9 +69,27 @@
                                                 @foreach ($manage_sebak as $sebak)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $sebak->sebak_name }}</td> 
-                                                    <td>{{ $sebak->description }}</td> 
-                                                    <td style = 'color:#B7070A;font-size: 15px'><a class ='cursor-pointer' href="{{url('admin/edit-sebak/'.$sebak->sebak_id)}}"><i class="fa fa-edit"></i></a> | <a class ='cursor-pointer' href="{{url('admin/delete-sebak/'.$sebak->sebak_id)}}"><i class="fa fa-trash"></i></a></td>
+                                                    <td>
+                                                        @if ($sebak->profile_photo)
+                                                            <a href="{{ url($sebak->profile_photo) }}" target="_blank">
+                                                                <img src="{{ url($sebak->profile_photo) }}" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                            </a>
+                                                        @else
+                                                            No Photo
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $sebak->name }}</td> 
+                                                    <td>{{ $sebak->mobile_no }}</td> 
+                                                    <td>{{ $sebak->email }}</td> 
+                                                    <td>{{ $sebak->status }}</td> 
+                                                    <td style="color:#B7070A; font-size: 15px">
+                                                        <a class="cursor-pointer" href="{{ url('admin/edit-sebak/' . $sebak->sebak_id) }}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a> | 
+                                                        <a class="cursor-pointer" href="{{ url('admin/delete-sebak/' . $sebak->sebak_id) }}">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                                 

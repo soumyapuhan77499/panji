@@ -26,12 +26,26 @@ class NitiloginController extends Controller
 
     public function sendOtp(Request $request)
     {
-        $fullPhoneNumber = $request->input('phone');
+        $phoneNumber = $request->input('phone');
+    
+        // Format the phone number with country code
+        $fullPhoneNumber = '+91' . $phoneNumber;
+        Log::info("Checking if user exists for mobile number: " . $fullPhoneNumber);
+    
+        // Check if the mobile number exists in the database
+        $user = Nitilogin::where('mobile_no', $fullPhoneNumber)->first();
+    
+        if (!$user) {
+            // If mobile number is not registered, return a custom error message
+            return response()->json(['message' => 'You are not registered. Please contact admin.'], 400);
+        }
+    
+        // Proceed with sending the OTP if the user exists
         Log::info("Sending OTP to: " . $fullPhoneNumber);
-
+    
         $client = new Client();
         $url = rtrim($this->apiUrl, '/') . '/auth/otp/v1/send';
-
+    
         try {
             $response = $client->post($url, [
                 'headers' => [
@@ -43,16 +57,16 @@ class NitiloginController extends Controller
                     'phoneNumber' => $fullPhoneNumber,
                 ],
             ]);
-
+    
             $body = json_decode($response->getBody(), true);
             Log::info("Response Body: " . print_r($body, true));
-
+    
             if (isset($body['orderId'])) {
                 $orderId = $body['orderId'];
-
+    
                 session(['otp_order_id' => $orderId]);
                 session(['otp_phone' => $fullPhoneNumber]);
-
+    
                 return response()->json(['message' => 'OTP sent successfully', 'order_id' => $orderId, 'phone' => $fullPhoneNumber], 200);
             } else {
                 return response()->json(['message' => 'Failed to send OTP. Please try again.'], 400);
@@ -62,19 +76,22 @@ class NitiloginController extends Controller
             return response()->json(['message' => 'Failed to send OTP due to an error.'], 500);
         }
     }
-
+    
     public function verifyOtp(Request $request)
     {
         $orderId = $request->input('orderId');
         $otp = $request->input('otp');
         $phoneNumber = $request->input('phoneNumber');
         $platform = $request->input('platform'); // 'web', 'android', or 'ios'
-
-        Log::info("Verifying OTP for Order ID: " . $orderId . ", Phone Number: " . $phoneNumber . ", OTP: " . $otp);
-
+    
+        // Format the phone number with country code
+        $fullPhoneNumber = '+91' . $phoneNumber;
+    
+        Log::info("Verifying OTP for Order ID: " . $orderId . ", Phone Number: " . $fullPhoneNumber . ", OTP: " . $otp);
+    
         $client = new Client();
         $url = rtrim($this->apiUrl, '/') . '/auth/otp/v1/verify';
-
+    
         try {
             $response = $client->post($url, [
                 'headers' => [
@@ -85,45 +102,34 @@ class NitiloginController extends Controller
                 'json' => [
                     'orderId' => $orderId,
                     'otp' => $otp,
-                    'phoneNumber' => $phoneNumber,
+                    'phoneNumber' => $fullPhoneNumber,
                 ],
             ]);
-
+    
             $body = json_decode($response->getBody(), true);
             Log::info("Response Body: " . print_r($body, true));
-
+    
             if (isset($body['isOTPVerified']) && $body['isOTPVerified']) {
                 // Check if user exists by mobile_no
-                $user = Nitilogin::where('mobile_no', $phoneNumber)->first();
-
+                $user = Nitilogin::where('mobile_no', $fullPhoneNumber)->first();
+    
                 if (!$user) {
-                    // Create a new user if it doesn't exist
-                    $user = Nitilogin::create([
-                        'user_id' => 'USER' . rand(10000, 99999),
-                        'mobile_no' => $phoneNumber,
-                        'order_id' => $orderId,
-                        'client_id' => $this->clientId,
-                        'client_secret' => Hash::make($this->clientSecret), // hash for security
-                        'otp_length' => strlen($otp),
-                        'channel' => $platform,
-                        'expiry' => now()->addMinutes(10), // Assuming OTP expires in 10 minutes
-                        'hash' => Hash::make($otp), // Hash the OTP
-                    ]);
-                } else {
-                    // If the user exists, update the details (optional)
-                    $user->order_id = $orderId;
-                    $user->client_id = $this->clientId;
-                    $user->client_secret = Hash::make($this->clientSecret);
-                    $user->otp_length = strlen($otp);
-                    $user->channel = $platform;
-                    $user->expiry = now()->addMinutes(10);
-                    $user->hash = Hash::make($otp);
-                    $user->save();
+                    return response()->json(['message' => 'You are not registered. Please contact admin.'], 400);
                 }
-
+    
+                // If the user exists, update the details (optional)
+                $user->order_id = $orderId;
+                $user->client_id = $this->clientId;
+                $user->client_secret = Hash::make($this->clientSecret);
+                $user->otp_length = strlen($otp);
+                $user->channel = $platform;
+                $user->expiry = now()->addMinutes(10);
+                $user->hash = Hash::make($otp);
+                $user->save();
+    
                 // Generate token
                 $token = $user->createToken('API Token')->plainTextToken;
-
+    
                 return response()->json([
                     'message' => 'User authenticated successfully.',
                     'user' => $user,
@@ -139,4 +145,5 @@ class NitiloginController extends Controller
             return response()->json(['message' => 'Failed to verify OTP due to an error.'], 500);
         }
     }
+    
 }

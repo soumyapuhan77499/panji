@@ -50,24 +50,39 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div class="row">
-                            <input type="hidden" class="form-control" id="sebak_id" name="sebak_id" value="SBK{{ rand(1000, 9999) }}" placeholder="">
+                            <input type="hidden" class="form-control" id="sebak_id" name="sebak_id" value="SEBAK{{ rand(1000, 9999) }}" placeholder="">
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="event_name">Sebak Name</label>
+                                    <label for="sebak_name">Sebak Name</label>
                                     <input type="text" class="form-control" id="sebak_name" name="sebak_name" placeholder="Enter Sebak Name">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="special_niti">Description</label>
-                                    <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                                    <label for="mobile_no">Mobile Number</label>
+                                    <input type="tel" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Mobile No" required pattern="\d{10}" oninput="validateMobile(this)" maxlength="10">
+                                    <small id="mobileError" style="color:red;display:none;">Mobile number must be 10 digits</small>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="profile_photo">Profile Photo <span style="color: red">*</span></label>
+                                    <input type="file" name="profile_photo"
+                                        class="form-control" id="profile_photo" required>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group" style="padding-top: 27px">

@@ -45,41 +45,73 @@
 
     <form action="{{ route('updateSebak', $sebak->id) }}" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_method" value="PUT"> <!-- This specifies the form is a PUT request -->
+        
         <!-- row -->
         <div class="row">
             <div class="col-lg-12 col-md-">
                 <div class="card custom-card">
                     <div class="card-body">
+                        <!-- Sebak ID -->
                         <div class="row">
                             <input type="hidden" class="form-control" id="sebak_id" name="sebak_id" value="{{ $sebak->sebak_id }}" placeholder="">
                         </div>
+    
+                        <!-- Sebak Name -->
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="sebak_name">Niti Name</label>
-                                    <input type="text" class="form-control" id="sebak_name" name="sebak_name" value="{{ $sebak->sebak_name }}" placeholder="Enter Niti Name">
+                                    <label for="sebak_name">Sebak Name</label>
+                                    <input type="text" class="form-control" id="sebak_name" name="sebak_name" value="{{ $sebak->name }}" placeholder="Enter Sebak Name" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile Number -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="mobile_no">Mobile Number</label>
+                                    <input type="tel" class="form-control" id="mobile_no" name="mobile_no" value="{{ substr($sebak->mobile_no, 3) }}" placeholder="Enter Mobile No" required pattern="\d{10}" maxlength="10">
                                 </div>
                             </div>
                         </div>
+    
+                        <!-- Email -->
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" placeholder="Enter Description">{{ $sebak->description }}</textarea>
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ $sebak->email }}" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+    
+                            <!-- Profile Photo -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="profile_photo">Profile Photo <span style="color: red">*</span></label>
+                                    <input type="file" name="profile_photo" class="form-control" id="profile_photo">
+                                    @if ($sebak->profile_photo)
+                                        <img src="{{ url($sebak->profile_photo) }}" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%; margin-top: 10px;">
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group" style="padding-top: 27px">
-                                <input type="submit" class="btn btn-primary" value="Update">
+    
+                  
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group" style="padding-top: 27px">
+                                    <input type="submit" class="btn btn-primary" value="Update">
+                                </div>
                             </div>
                         </div>
+    
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    
 @endsection
 
 @section('modal')
