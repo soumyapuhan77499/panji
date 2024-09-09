@@ -19,11 +19,11 @@
                             <div class="card-sigin mt-5 mt-md-0">
                                 <!-- Demo content-->
                                 <div class="main-card-signin d-md-flex">
-                                    <div class="wd-100p"><div class="d-flex mb-4"><a href="{{url('/')}}"><img src="{{asset('assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a></div>
+                                    <div class="wd-150p"><div class="d-flex"><a href="{{url('/')}}"><img src="{{asset('assets/img/brand/jagannath.png')}}" class="sign-favicon ht-250" alt="logo"></a></div>
                                         <div class="">
                                             <div class="main-signup-header">
                                                 <h2>Welcome back!</h2>
-                                                <h6 class="font-weight-semibold mb-4">Please sign in to continue.</h6>
+                                                <h6 class="font-weight-semibold">Please sign in to continue.</h6>
                                                 <div class="panel panel-primary">
                                                 <div class=" tab-menu-heading mb-2 border-bottom-0">
                                                     <div class="tabs-menu1">

@@ -75,8 +75,6 @@
                                     <input type="time" class="form-control" id="time" name="time" placeholder="Enter Time">
                                 </div>
                             </div>
-                          
-                           
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -102,7 +100,7 @@
                                     <select class="form-control select2" id="sebak_name" name="sebak_name[]" multiple="multiple">
                                         <option value="">Select Sebak</option>
                                         @foreach($sebaks as $sebak)
-                                            <option value="{{ $sebak->sebak_name }}">{{ $sebak->sebak_name }}</option>
+                                            <option value="{{ $sebak->sebak_id }}">{{ $sebak->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

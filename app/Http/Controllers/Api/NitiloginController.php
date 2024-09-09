@@ -5,7 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use App\Models\Nitilogin; // Make sure this model maps to your table
+use App\Models\Sebaklogin; // Make sure this model maps to your table
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -33,7 +33,7 @@ class NitiloginController extends Controller
         Log::info("Checking if user exists for mobile number: " . $fullPhoneNumber);
     
         // Check if the mobile number exists in the database
-        $user = Nitilogin::where('mobile_no', $fullPhoneNumber)->first();
+        $user = Sebaklogin::where('mobile_no', $fullPhoneNumber)->first();
     
         if (!$user) {
             // If mobile number is not registered, return a custom error message
@@ -111,7 +111,7 @@ class NitiloginController extends Controller
     
             if (isset($body['isOTPVerified']) && $body['isOTPVerified']) {
                 // Check if user exists by mobile_no
-                $user = Nitilogin::where('mobile_no', $fullPhoneNumber)->first();
+                $user = Sebaklogin::where('mobile_no', $fullPhoneNumber)->first();
     
                 if (!$user) {
                     return response()->json(['message' => 'You are not registered. Please contact admin.'], 400);

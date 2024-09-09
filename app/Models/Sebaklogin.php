@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens; // Add this
 
-class Nitilogin extends Model
+class Sebaklogin extends Model
 {
     use HasFactory, HasApiTokens; // Include HasApiTokens trait
     protected $table = 'sebak_login';

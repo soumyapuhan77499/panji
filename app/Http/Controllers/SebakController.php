@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Nitilogin;
+use App\Models\Sebaklogin;
 
 use Illuminate\Http\Request;
 
 class SebakController extends Controller
 {
     public function managesebak(){
-        $manage_sebak = Nitilogin::where('status', 'active')->get();
+        $manage_sebak = Sebaklogin::where('status', 'active')->get();
         return view('managesebak',compact('manage_sebak'));
     }
 
@@ -35,7 +35,7 @@ class SebakController extends Controller
         }
     
         // Create a new Sebak login entry
-        $sebak = new Nitilogin();
+        $sebak = new Sebaklogin();
         $sebak->sebak_id = $request->sebak_id;
         $sebak->name = $request->sebak_name;
         $sebak->mobile_no = '+91' . $request->mobile_no;
@@ -53,7 +53,7 @@ class SebakController extends Controller
 
     public function deletSebak($sebak_id)
     {
-        $affected = Nitilogin::where('sebak_id', $sebak_id)->update(['status' => 'deleted']);
+        $affected = Sebaklogin::where('sebak_id', $sebak_id)->update(['status' => 'deleted']);
                         
         if ($affected) {
             return redirect()->back()->with('success', 'Data deleted successfully.');
@@ -64,7 +64,7 @@ class SebakController extends Controller
 
     public function editSebak($sebak_id)
     {
-        $sebak = Nitilogin::where('sebak_id', $sebak_id)->first();
+        $sebak = Sebaklogin::where('sebak_id', $sebak_id)->first();
 
         return view('updatesebak', compact('sebak'));
     }
@@ -80,7 +80,7 @@ class SebakController extends Controller
         ]);
     
         // Find the existing Sebak by ID
-        $sebak = Nitilogin::findOrFail($id);  // Fetch the existing record, or fail if not found
+        $sebak = Sebaklogin::findOrFail($id);  // Fetch the existing record, or fail if not found
     
         // Handle the file upload for the profile photo if provided
         if ($request->hasFile('profile_photo')) {

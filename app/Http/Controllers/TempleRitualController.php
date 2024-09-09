@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ritual;
 use App\Models\Niti;
-use App\Models\Sebak;
+use App\Models\Sebaklogin;
 
 class TempleRitualController extends Controller
 {
@@ -15,7 +15,7 @@ class TempleRitualController extends Controller
     }
     public function addritual(){
         $nitis = Niti::where('status', 'active')->get();
-        $sebaks = Sebak::where('status', 'active')->get();
+        $sebaks = Sebaklogin::where('status', 'active')->get();
 
         return view('addtempleritual', compact('nitis', 'sebaks'));
     }
@@ -70,7 +70,7 @@ class TempleRitualController extends Controller
     {
         $ritual = Ritual::findOrFail($id);
         $nitis = Niti::where('status', 'active')->get();
-        $sebaks = Sebak::where('status', 'active')->get();
+        $sebaks = Sebaklogin::where('status', 'active')->get();
         return view('updatetempleritual', compact('ritual', 'nitis', 'sebaks'));
        
     }
@@ -104,8 +104,6 @@ class TempleRitualController extends Controller
         } else {
             return redirect()->back()->with('error', 'Failed to update data.');
         } 
-    }
-    
-    
+    } 
 
 }
