@@ -81,13 +81,16 @@ class NitiloginController extends Controller
     {
         $orderId = $request->input('orderId');
         $otp = $request->input('otp');
-        $phoneNumber = $request->input('phoneNumber');
+        $phoneNumber = $request->input('phoneNumber'); // Expecting the full phone number including country code
         $platform = $request->input('platform'); // 'web', 'android', or 'ios'
     
-        // Format the phone number with country code
-        $fullPhoneNumber = '+91' . $phoneNumber;
+        // Ensure the phone number is in the format '+91XXXXXXXXXX'
+        if (strpos($phoneNumber, '+91') === false) {
+            // If the phone number does not start with '+91', prepend it
+            $phoneNumber = '+91' . $phoneNumber;
+        }
     
-        Log::info("Verifying OTP for Order ID: " . $orderId . ", Phone Number: " . $fullPhoneNumber . ", OTP: " . $otp);
+        Log::info("Verifying OTP for Order ID: " . $orderId . ", Phone Number: " . $phoneNumber . ", OTP: " . $otp);
     
         $client = new Client();
         $url = rtrim($this->apiUrl, '/') . '/auth/otp/v1/verify';
@@ -102,7 +105,7 @@ class NitiloginController extends Controller
                 'json' => [
                     'orderId' => $orderId,
                     'otp' => $otp,
-                    'phoneNumber' => $fullPhoneNumber,
+                    'phoneNumber' => $phoneNumber,
                 ],
             ]);
     
@@ -111,7 +114,7 @@ class NitiloginController extends Controller
     
             if (isset($body['isOTPVerified']) && $body['isOTPVerified']) {
                 // Check if user exists by mobile_no
-                $user = Sebaklogin::where('mobile_no', $fullPhoneNumber)->first();
+                $user = Sebaklogin::where('mobile_no', $phoneNumber)->first();
     
                 if (!$user) {
                     return response()->json(['message' => 'You are not registered. Please contact admin.'], 400);
@@ -145,5 +148,6 @@ class NitiloginController extends Controller
             return response()->json(['message' => 'Failed to verify OTP due to an error.'], 500);
         }
     }
+    
     
 }
