@@ -13,12 +13,14 @@ class TempleRitualController extends Controller
         $manage_ritual = Ritual::where('status', 'active')->get();
         return view('managetempleritual',compact('manage_ritual'));
     }
+
     public function addritual(){
         $nitis = Niti::where('status', 'active')->get();
         $sebaks = Sebaklogin::where('status', 'active')->get();
 
         return view('addtempleritual', compact('nitis', 'sebaks'));
     }
+
     public function saveRitual(Request $request){
         $request->validate([
             'ritual_name' => 'required|string',
@@ -26,7 +28,6 @@ class TempleRitualController extends Controller
             'niti_name' => 'required|array', // Ensure niti_name is an array
             'niti_name.*' => 'string', // Validate each niti_name value
         ]);
-
       
         $ritual = new Ritual();
     
@@ -37,15 +38,13 @@ class TempleRitualController extends Controller
         $ritual->time = $request->time;
         $ritual->description = $request->description;
         
-        $nitinames = $request->input('niti_name');
-   
+            $nitinames = $request->input('niti_name');
             $nitinamesString = implode(',', $nitinames);
-            $ritual->niti_name = $nitinamesString;
-      
+            $ritual->niti_id = $nitinamesString;
+            
             $sebaknames = $request->input('sebak_name');
-
             $sebaknamesString = implode(',', $sebaknames);
-            $ritual->sebak_name = $sebaknamesString;
+            $ritual->sebak_id = $sebaknamesString;
       
         if ($ritual->save()) {
             return redirect()->back()->with('success', 'Data saved successfully.');
@@ -77,7 +76,6 @@ class TempleRitualController extends Controller
 
     public function update(Request $request, $id)
     {
-    
         // Validate the request data
        $request->validate([
             'ritual_name' => 'required|string',

@@ -18,7 +18,7 @@ class Sebaklogin extends Model
         'client_secret',
         'otp_length',
         'channel',
-        'expiry',
+        'expires_at',
         'hash',
     ];
 }

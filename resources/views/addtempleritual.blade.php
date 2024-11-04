@@ -50,13 +50,14 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div class="row">
-                            <input type="hidden" class="form-control" id="ritual_id" name="ritual_id" value="TR{{ rand(1000, 9999) }}" placeholder="">
+                            <input type="hidden" class="form-control" id="ritual_id" name="ritual_id" value="RITUAL{{ rand(1000, 9999) }}" placeholder="">
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                             <div class="form-group">
-                                <label for="language">Choose Language</label>
+                                <label for="language">Language</label>
                                 <select class="form-control" id="language" name="language">
+                                    <option value=" ">Select language...</option>
                                     <option value="English">English</option>
                                     <option value="Hindi">Hindi</option>
                                     <option value="Odia">Odia</option>
@@ -89,7 +90,7 @@
                                     <select class="form-control select2" id="niti_name" name="niti_name[]" multiple="multiple">
                                         <option value="">Select Niti</option>
                                         @foreach($nitis as $niti)
-                                            <option value="{{ $niti->niti_name }}">{{ $niti->niti_name }}</option>
+                                            <option value="{{ $niti->niti_id }}">{{ $niti->niti_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -57,15 +57,17 @@
                         @csrf
                         <div class="row">
                             <input type="hidden" class="form-control" id="niti_id" name="niti_id"
-                                value="NT{{ rand(1000, 9999) }}" placeholder="">
+                                value="NITI{{ rand(1000, 9999) }}" placeholder="">
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="language">Language</label>
                                     <select class="form-control" id="language" name="language">
-                                        <option value="odia">Odia</option>
-                                        <option value="english">English</option>
+                                        <option value=" ">select language...</option>
+                                        <option value="Odia">Odia</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="English">English</option>
                                     </select>
                                 </div>
                             </div>
@@ -76,38 +78,36 @@
                                         placeholder="Enter Niti Name">
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="niti_date">Niti Date</label>
-                                    <input type="date" class="form-control" id="niti_date" name="niti_date"
-                                        placeholder="Enter Niti Date">
-                                </div>
-                            </div>
-                           
-                        </div>
-                        <div class="row">
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="niti_time">Niti Time</label>
-                                    <input type="time" class="form-control" id="niti_time" name="niti_time"
-                                        placeholder="Enter Niti Time">
+                                    <div class="input-group">
+                                        <input type="time" class="form-control" id="niti_time" name="niti_time" placeholder="Enter Niti Time">
+                                        <select class="form-control" id="niti_ampm" name="niti_ampm" style="max-width: 80px;">
+                                            <option value="AM">AM</option>
+                                            <option value="PM">PM</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            
+                        </div>
+                        <div class="row">
                             <div class="col-md-8">
-                                <div class="form-group" style="margin-top: 30px">
-                                    <label for="niti_type">Niti Type</label>
-                                    <div class="form-check form-check-inline" style="margin-left: 15px">
-                                        <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="special_niti" name="niti_type" value="special">
-                                        <label class="form-check-label" for="special_niti">Special Niti</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="daily_niti" name="niti_type" value="daily">
-                                        <label class="form-check-label" for="daily_niti">Daily Niti</label>
+                                <div class="form-group row align-items-center">
+                                    <label for="niti_type" class="col-sm-3 col-form-label">Niti Type</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="special_niti" name="niti_type" value="special">
+                                            <label class="form-check-label" for="special_niti">Special Niti</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" style="height:20px;width: 20px" type="radio" id="daily_niti" name="niti_type" value="daily">
+                                            <label class="form-check-label" for="daily_niti">Daily Niti</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -117,7 +117,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group" style="padding-top: 27px">
@@ -126,7 +125,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

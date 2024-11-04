@@ -22896,6 +22896,7 @@ ul.timeline:before {
 
   .responsive-logo .mobile-logo {
     margin-top: 3px !important;
+    width: 100px;
   }
 }
 @media (min-width: 768px) {

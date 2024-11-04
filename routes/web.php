@@ -10,19 +10,17 @@ use App\Http\Controllers\YoutubeController;
 use App\Http\Controllers\User\userController;
 use App\Http\Controllers\TempleRitualController;
 use App\Http\Controllers\sebayatregisterController;
+use App\Http\Controllers\SebakLoginController;
+
 use App\Http\Controllers\Auth\LoginRegisterController;
 
+Route::controller(SebakLoginController::class)->group(function () {
+    // Public routes (accessible without authentication)
+    Route::get('sebak/sebak-login', 'sebaklogin')->name('sebaklogin');
+    Route::post('sebak/send-otp', 'sendOtp');
+    Route::post('sebak/verify-otp', 'verifyOtp');
+});
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 // login information route
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
@@ -32,6 +30,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
 // Niti information route
 Route::controller(NitiController::class)->group(function(){
     Route::get('admin/manage-niti','manageniti')->name('manageniti');
@@ -47,8 +46,8 @@ Route::controller(NoticeController::class)->group(function(){
     Route::post('admin/saveNotice', 'saveNotice')->name('saveNotice');
     Route::get('admin/manage-notice', 'manageNotice')->name('managenotice');
     Route::get('admin/edit-notice/{id}','editNotice')->name('edit.notice');
-Route::post('admin/update-notice/{id}','updateNotice')->name('update.notice');
-Route::get('admin/delete-notice/{id}',  'deleteNotice')->name('delete.notice');
+    Route::post('admin/update-notice/{id}','updateNotice')->name('update.notice');
+    Route::get('admin/delete-notice/{id}',  'deleteNotice')->name('delete.notice');
 });
 
 Route::controller(ParkingController::class)->group(function(){
@@ -58,7 +57,6 @@ Route::controller(ParkingController::class)->group(function(){
     Route::get('admin/edit-parking/{id}', 'editParking')->name('edit.parking');
     Route::put('admin/update-parking/{id}',  'updateParking')->name('updateParking');
     Route::get('admin/delete-parking/{id}',  'deleteParking')->name('delete.parking');
-
 });
 
 Route::controller(YoutubeController::class)->group(function(){
@@ -81,7 +79,7 @@ Route::controller(SebakController::class)->group(function(){
 });
 // Temple rituals route
 Route::controller(TempleRitualController::class)->group(function(){
-    Route::get('admin/manage-temple-ritual','manageritual');
+    Route::get('admin/manage-temple-niti','manageritual');
     Route::get('admin/add-temple-ritual','addritual');
     Route::post('admin/save-ritual', 'saveRitual')->name('saveRitual');
     Route::get('admin/delete-ritual/{ritual_id}', 'deletRitual')->name('deletRitual');

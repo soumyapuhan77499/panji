@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class NitiController extends Controller
 {
+    
     public function dailyritualtimg()
     {
         $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
@@ -243,7 +244,6 @@ public function pause(Request $request)
         'data' => $niti
     ], 200);
 }
-
 
 public function resume(Request $request)
 {

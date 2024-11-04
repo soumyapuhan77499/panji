@@ -126,7 +126,7 @@ class NitiloginController extends Controller
                 $user->client_secret = Hash::make($this->clientSecret);
                 $user->otp_length = strlen($otp);
                 $user->channel = $platform;
-                $user->expiry = now()->addMinutes(10);
+                $user->expires_at = now()->addMinutes(10);
                 $user->hash = Hash::make($otp);
                 $user->save();
     
