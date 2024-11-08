@@ -20,13 +20,19 @@ Route::controller(NitiloginController::class)->group(function() {
 });
 
 Route::controller(NitiController::class)->group(function() {
-    Route::get('/manageniti',  'manageniti')->name('manageniti');
-    Route::post('/niti-start', 'start')->name('nitiStart');
-    Route::post('/niti-end', 'end')->name('nitiEnd');
-    Route::post('/niti-pause', 'pause')->name('nitiPause');
-    Route::post('/niti-resume', 'resume')->name('nitiResume');
-    Route::get('/daily_ritual_timing',  'dailyritualtimg')->name('dailyritualtimg');
-    Route::get('/current_status_ritual',  'currentstatus')->name('currentstatus');
+    
+    // Routes that do not require authentication
+    Route::get('/manageniti', 'manageniti')->name('manageniti');
+    Route::get('/daily_ritual_timing', 'dailyritualtimg')->name('dailyritualtimg');
+    Route::get('/current_status_ritual', 'currentstatus')->name('currentstatus');
+
+    // Routes that require authentication
+    Route::middleware(['auth:sebak_api'])->group(function () {
+        Route::post('/niti-start', 'start')->name('nitiStart');
+        Route::post('/niti-end', 'end')->name('nitiEnd');
+        Route::post('/niti-pause', 'pause')->name('nitiPause');
+        Route::post('/niti-resume', 'resume')->name('nitiResume');
+    });
 });
 
 Route::controller(DarshanController::class)->group(function() {

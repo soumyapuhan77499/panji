@@ -9,11 +9,11 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">ADD NITI</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">ADD NITI DETAILS</span>
         </div>
         <div class="justify-content-center mt-2">
             <ol class="breadcrumb d-flex justify-content-between align-items-center">
-                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-niti') }}"
+                <li class="breadcrumb-item tx-15"><a href="{{ url('admin/manage-niti-details') }}"
                         class="btn btn-warning text-dark">Manage Niti</a></li>
                 <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
                 <li class="breadcrumb-item active tx-15" aria-current="page">ADD NITI</li>

@@ -11,6 +11,8 @@ use App\Http\Controllers\User\userController;
 use App\Http\Controllers\TempleRitualController;
 use App\Http\Controllers\sebayatregisterController;
 use App\Http\Controllers\SebakLoginController;
+use App\Http\Controllers\DeityController;
+
 
 use App\Http\Controllers\Auth\LoginRegisterController;
 
@@ -33,12 +35,20 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 // Niti information route
 Route::controller(NitiController::class)->group(function(){
-    Route::get('admin/manage-niti','manageniti')->name('manageniti');
-    Route::get('admin/add-niti','addniti');
+    Route::get('admin/manage-niti-details','managenitidetails')->name('managenitidetails');
+    Route::get('admin/add-niti-details','addnitidetails');
     Route::post('admin/saveNiti', 'saveNiti')->name('saveNiti');
     Route::get('admin/delete-niti/{niti_id}', 'deletNiti')->name('deletNiti');
     Route::get('admin/edit-niti/{id}','editNiti')->name('editNiti');
     Route::put('admin/update-niti/{id}','update')->name('updateNiti');
+
+    Route::get('admin/add-niti','addniti');
+    Route::get('admin/manage-niti','manageniti')->name('manageniti');
+    Route::post('admin/save-niti', 'saveNitiMaster')->name('saveNitiMaster');
+    Route::delete('admin/delete-niti-master/{id}', 'deleteNitiMaster')->name('deletNitiMaster');
+    Route::get('admin/edit-niti-master/{id}','editNitiMaster')->name('editNitiMaster');
+    Route::put('admin/update-niti-master/{id}', 'updateNitiMaster')->name('updateNitiMaster');
+
 });
 
 Route::controller(NoticeController::class)->group(function(){
@@ -76,6 +86,21 @@ Route::controller(SebakController::class)->group(function(){
     Route::get('admin/delete-sebak/{sebak_id}', 'deletSebak')->name('deletSebak');
     Route::get('admin/edit-sebak/{sebak_id}','editSebak')->name('editSebak');
     Route::put('admin/update-sebak/{id}','update')->name('updateSebak');
+
+
+    Route::get('admin/manage-seba','manageSeba')->name('manageSeba');
+    Route::get('admin/add-seba','addSeba');
+    Route::post('admin/save-seba', 'saveSeba')->name('saveSeba');
+    Route::delete('admin/delete-seba/{id}', 'deleteSeba')->name('deleteSeba');
+    Route::get('admin/edit-seba/{id}','editSeba')->name('editSeba');
+    Route::put('admin/update-seba/{id}','updateSeba')->name('updateSeba');
+
+    Route::get('admin/manage-sebayat','manageSebayat')->name('manageSebayat');
+    Route::get('admin/add-sebayat','addSebayat');
+    Route::post('admin/save-sebayat', 'saveSebayat')->name('saveSebayat');
+    Route::delete('admin/delete-sebayat/{id}', 'deleteSebayat')->name('deleteSebayat');
+    Route::get('admin/edit-sebayat/{id}','editSebayat')->name('editSebayat');
+    Route::put('admin/update-sebayat/{id}','updateSebayat')->name('updateSebayat');
 });
 // Temple rituals route
 Route::controller(TempleRitualController::class)->group(function(){
@@ -85,6 +110,15 @@ Route::controller(TempleRitualController::class)->group(function(){
     Route::get('admin/delete-ritual/{ritual_id}', 'deletRitual')->name('deletRitual');
     Route::get('admin/edit-ritual/{id}','editRitual')->name('editRitual');
     Route::put('admin/update-ritual/{id}','update')->name('updateRitual');
+});
+
+Route::controller(DeityController::class)->group(function(){
+    Route::get('admin/manage-deity','manageDeity')->name('manageDeity');
+    Route::get('admin/add-deity','addDeity');
+    Route::post('admin/save-deity', 'saveDeity')->name('saveDeity');
+    Route::delete('admin/delete-deity/{id}', 'deletDeity')->name('deletDeity');
+    Route::get('admin/edit-deity/{id}','editDeity')->name('editDeity');
+    Route::put('admin/update-deity/{id}','updateDeity')->name('updateDeity');
 });
 
 // admin routes

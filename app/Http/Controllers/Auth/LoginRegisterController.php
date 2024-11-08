@@ -129,37 +129,37 @@ class LoginRegisterController extends Controller
 
     // } 
 
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            $user = auth()->user();
-            // Check if the user is active
-            if ($user->status == 'active') {
-                // Check if the user has the required role to login
-                    return redirect()->intended('/admin/dashboard');
-            } else {
-                // User is not active, logout and redirect back with error message
-                Auth::logout();
-                return redirect()->back()->withErrors(['email' => 'Your account is not active. Please contact support.']);
-            }
-        }else{
+    // public function authenticate(Request $request)
+    // {
+    //     $credentials = $request->only('email', 'password');
+    //     if (Auth::attempt($credentials)) {
+    //         $user = auth()->user();
+    //         // Check if the user is active
+    //         if ($user->status == 'active') {
+    //             // Check if the user has the required role to login
+    //                 return redirect()->intended('/admin/dashboard');
+    //         } else {
+    //             // User is not active, logout and redirect back with error message
+    //             Auth::logout();
+    //             return redirect()->back()->withErrors(['email' => 'Your account is not active. Please contact support.']);
+    //         }
+    //     }else{
 
-        // Authentication failed...
-        return redirect()->back()->withErrors(['email' => 'Invalid credentials.']); // Redirect back with error message
-    }
-    }
+    //     // Authentication failed...
+    //     return redirect()->back()->withErrors(['email' => 'Invalid credentials.']); // Redirect back with error message
+    // }
+    // }
     
     /**
      * Display a dashboard to authenticated users.
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function dashboard()
     {
-        if(Auth::check())
-        {
-            $today = Carbon::today()->toDateString(); // Get today's date in 'Y-m-d' format
+     
+            $today = Carbon::today()->toDateString(); 
 
             $manage_nitis = Niti::where('status', 'active')
             ->whereDate('niti_date', $today) // Filter by today's date
@@ -167,12 +167,7 @@ class LoginRegisterController extends Controller
         
 
             return view('dashboard',compact('manage_nitis'));
-        }
         
-        return redirect()->route('login')
-            ->withErrors([
-            'email' => 'Please login to access the dashboard.',
-        ])->onlyInput('email');
     } 
 
    

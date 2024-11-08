@@ -36,7 +36,6 @@
                                                 <div class="panel-body tabs-menu-body border-0 p-3">
                                                  <div class="tab-content">
                                                         <div class="tab-pane active" id="tab5">
-                                                        <form action="{{ route('authenticate') }}" method="post">
                     @csrf
                                                                 <div class="form-group">
                                                                     <label>Email</label> <input class="form-control" placeholder="Enter your email" name="email" type="text">
@@ -48,7 +47,6 @@
                                                                 <!-- <a href="{{url('index')}}" class="btn btn-primary btn-block">Sign In</a> -->
                                                                 <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Login">
                                                               
-                                                                </form>
                                                         </div>
                                                         <div class="tab-pane" id="tab6">
                                                             <div id="mobile-num" class="wrap-input100 validate-input input-group mb-2">

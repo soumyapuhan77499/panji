@@ -14,20 +14,18 @@
 
 @section('content')
 
-                <!-- breadcrumb -->
                 <div class="breadcrumb-header justify-content-between">
                     <div class="left-content">
                       <span class="main-content-title mg-b-0 mg-b-lg-1">Manage Niti</span>
                     </div>
                     <div class="justify-content-center mt-2">
                         <ol class="breadcrumb d-flex justify-content-between align-items-center">
-                            <a href="{{url('admin/add-niti')}}" class="breadcrumb-item tx-15 btn btn-warning">Add Niti</a>
+                            <a href="{{url('admin/add-niti-details')}}" class="breadcrumb-item tx-15 btn btn-warning">Add Niti</a>
                             <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Manage Niti</li>
                         </ol>
                     </div>
                 </div>
-                <!-- /breadcrumb -->
 
                    
                 @if(session('success'))

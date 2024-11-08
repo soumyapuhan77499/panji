@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Niti extends Model
 {
     use HasFactory;
+
     protected $table = 'niti';
 
     protected $fillable = [
-        'niti_id', 
-        'niti_name', 
-        'description', 
-        'niti_date', 
-        'niti_time'
+        'language',
+        'niti_id',
+        'niti_type',
+        'niti_name',
+        'niti_time',
+        'description',
+        'status'
     ];
     
     public function rituals()

@@ -21,14 +21,7 @@ class userController extends Controller
         $user = DB::table('users')
                 ->where('users.userid', '=', $userid)
                 ->first();      
-        // $user = DB::table('users')
-        //         ->join('bankdetails', 'users.userid', '=', 'bankdetails.userid')
-        //         ->select('users.*', 'bankdetails.*')
-        //         ->where('users.userid', '=', $userid)
-        //         ->first();
-
-            // dd($user);
+      
         return view('user.sebayatregister', ['user' => $user]);
-        // return view('user.sebayatregister');
     }
 }
