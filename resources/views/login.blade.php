@@ -36,17 +36,13 @@
                                                 <div class="panel-body tabs-menu-body border-0 p-3">
                                                  <div class="tab-content">
                                                         <div class="tab-pane active" id="tab5">
-                    @csrf
                                                                 <div class="form-group">
                                                                     <label>Email</label> <input class="form-control" placeholder="Enter your email" name="email" type="text">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Password</label> <input class="form-control" placeholder="Enter your password" name="password" type="password">
                                                                 </div>
-                                                                
-                                                                <!-- <a href="{{url('index')}}" class="btn btn-primary btn-block">Sign In</a> -->
-                                                                <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Login">
-                                                              
+                                                                <a class="btn btn-success" href="{{url('/admin/dashboard')}}">Submit</a>
                                                         </div>
                                                         <div class="tab-pane" id="tab6">
                                                             <div id="mobile-num" class="wrap-input100 validate-input input-group mb-2">
